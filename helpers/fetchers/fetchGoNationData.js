@@ -1,4 +1,4 @@
-import { businessId } from '../../config';
+import { businessId, poweredId } from '../../config';
 import {
   storiesFetch,
   aboutFetch,
@@ -42,7 +42,7 @@ const fetchGoNationData = async params => {
 
   if (poweredImages) {
     try {
-      poweredImagesData = await poweredImagesFetch(businessId);
+      poweredImagesData = await poweredImagesFetch(poweredId || businessId);
     } catch (e) {
       poweredImagesData = {
         error: e,
@@ -52,7 +52,7 @@ const fetchGoNationData = async params => {
 
   if (about) {
     try {
-      aboutData = await aboutFetch(businessId);
+      aboutData = await aboutFetch(poweredId || businessId);
     } catch (e) {
       aboutData = {
         error: e,
@@ -62,7 +62,7 @@ const fetchGoNationData = async params => {
 
   if (shout) {
     try {
-      shoutData = await shoutFetch(businessId);
+      shoutData = await shoutFetch(poweredId || businessId);
     } catch (e) {
       shoutData = {
         error: e,
@@ -72,7 +72,7 @@ const fetchGoNationData = async params => {
 
   if (events) {
     try {
-      eventsData = await eventFetch(businessId);
+      eventsData = await eventFetch(poweredId || businessId);
     } catch (e) {
       eventsData = {
         error: e,
@@ -82,7 +82,10 @@ const fetchGoNationData = async params => {
 
   if (menuInventory) {
     try {
-      menuInventoryData = await menuInventoryFetch(businessId, menuPL);
+      menuInventoryData = await menuInventoryFetch(
+        poweredId || businessId,
+        menuPL
+      );
     } catch (e) {
       menuInventoryData = {
         error: e,
@@ -92,7 +95,7 @@ const fetchGoNationData = async params => {
 
   if (gallery) {
     try {
-      galleryData = await galleryFetch(businessId);
+      galleryData = await galleryFetch(poweredId || businessId);
     } catch (e) {
       galleryData = {
         error: e,

@@ -6,6 +6,7 @@ import getGoogleString from 'helpers/printing/getGoogleString';
 import printAddress from 'helpers/printing/printAddress';
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { routes } from 'config';
+import buildAvatar from 'helpers/general/buildAvatar';
 
 const RouteLinks = ({ routes, tag }) => (
   <ul>
@@ -40,15 +41,9 @@ const Footer = ({ business }) => {
           {/* Logo and Description */}
           <div className=" md:col-span-3 lg:col-span-1 md:order-10 lg:order-first ">
             <div className="bg-white inline-block w-32 rounded-full mb-2">
-              <img
-                src="https://res.cloudinary.com/gonation/image/upload/v1693084987/sites/thc/THC_Logo_FINAL_ring_trans.png"
-                alt={business.name}
-              />
+              <img src={buildAvatar(business)} alt={business.name} />
             </div>
-            <p className="mb-4 max-w-xs text-sm text-white font-body">
-              Crafting exceptional experiences with diverse beers, cocktails,
-              and delightful food at The Hops Company in Connecticut.
-            </p>
+            <p className="mb-4 max-w-xs text-sm text-white font-body"></p>
             <div className="flex">
               <SocialLinks links={business.links} />
             </div>

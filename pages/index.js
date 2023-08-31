@@ -12,23 +12,57 @@ import LargeContentContainer from 'components/story-components/LargeContentConta
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import { filterAndSortStories } from 'helpers';
 import findStoryByName from 'helpers/findStoryByName';
+import { Hero } from 'components/heros/Hero';
 
 const Home = ({ storiesData, shoutData, filesData }) => {
-  const homepageSliderStories = filterAndSortStories(
-    storiesData,
-    'homepage slider'
-  );
+  //   const homepageSliderStories = filterAndSortStories(
+  //     storiesData,
+  //     'homepage slider'
+  //   );
 
-  const homePageStorySectionStories = filterAndSortStories(
-    storiesData,
-    'homepage story section'
-  );
+  //   const homePageStorySectionStories = filterAndSortStories(
+  //     storiesData,
+  //     'homepage story section'
+  //   );
 
   return (
     <>
-      <MultiStoryHero stories={homepageSliderStories} slideDuration={8000} />
+      <Hero story={findStoryByName('Homepage hero', storiesData.general)} />
       <ExpandableShout isExpandable={false} shout={shoutData.shout} />
-      <BackgroundVideo
+      <LargeContentContainer
+        story={findStoryByName('Homepage story 2', storiesData.general)}
+      />
+      <StorySection
+        storiesData={storiesData.general}
+        storiesConfig={[
+          {
+            storyName: 'Homepage story 4',
+            config: filesData[0],
+          },
+
+          // ... add more stories as needed
+        ]}
+      />
+      <LargeContentContainer
+        story={findStoryByName('Homepage story 3', storiesData.general)}
+      />
+      <StorySection
+        storiesData={storiesData.general}
+        storiesConfig={[
+          { storyName: 'Homepage story 5', config: filesData[2] },
+          // ... add more stories as needed
+        ]}
+      />
+      <LargeContentContainer
+        story={findStoryByName('Homepage story 6', storiesData.general)}
+      />
+      {/* <MultiStoryHero
+        stories={[findStoryByName('Homepage hero ', storiesData.general)]}
+        slideDuration={8000}
+      /> */}
+      {/*
+      <ExpandableShout isExpandable={false} shout={shoutData.shout} /> */}
+      {/* <BackgroundVideo
         videoUrl="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"
         videoTitle="YouTube video player"
       />
@@ -48,7 +82,7 @@ const Home = ({ storiesData, shoutData, filesData }) => {
       />
       <LargeContentContainer
         story={findStoryByName('Homepage story 5', storiesData.general)}
-      />
+      /> */}
     </>
   );
 };

@@ -11,7 +11,11 @@ import { routes } from 'config';
 import buildAvatar from 'helpers/general/buildAvatar';
 import slugifyLower from 'helpers/printing/slugifyLower';
 
-const Navigation = ({ business, logoAsText = false }) => {
+const Navigation = ({
+  business,
+  logoAsText = false,
+  navLayout = 'stacked',
+}) => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -80,24 +84,54 @@ const Navigation = ({ business, logoAsText = false }) => {
     </div>
   );
 
+  const renderLogo = () => (
+    <div className="transition-all bg-white max-w-[250px] md:max-w-sm ">
+      <Link href={'/'}>
+        <Image
+          className="transition-all"
+          src={logo}
+          alt="Business Logo"
+          width={500}
+          height={200}
+        />
+      </Link>
+    </div>
+  );
+
+  const renderNavItems = () => (
+    <div className="hidden lg:flex space-x-3">{routes.map(renderRoute)}</div>
+  );
+
+  const renderNavigationContent = () => {
+    if (navLayout === 'logoLeft') {
+      return (
+        <div className="flex justify-between items-center">
+          {renderLogo()}
+          {renderNavItems()}
+        </div>
+      );
+    } else if (navLayout === 'logoRight') {
+      return (
+        <div className="flex justify-between items-center">
+          {renderNavItems()}
+          {renderLogo()}
+        </div>
+      );
+    } else {
+      // Default to stacked layout
+      return (
+        <>
+          {renderLogo()}
+          {renderNavItems()}
+        </>
+      );
+    }
+  };
+
   return (
     <div className={`absolute w-full z-50 transition-all`}>
-      <div className="container max-w-6xl xl:max-w-none mx-auto px-4 py-4 flex lg:flex-col items-center justify-center">
-        <div className="transition-all mb-8 lg:mb-4">
-          <Link href={'/'}>
-            <Image
-              className="transition-all"
-              src={logo}
-              alt="Business Logo"
-              width={160}
-              height={160}
-            />
-          </Link>
-        </div>
-
-        <div className="hidden lg:flex space-x-3">
-          {routes.map(renderRoute)}
-        </div>
+      <div className="container max-w-8xl  mx-auto px-4 py-4">
+        {renderNavigationContent()}
 
         <div className="lg:hidden absolute right-8 top-14 md:top-16 z-10">
           <Hamburger

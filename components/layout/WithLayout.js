@@ -39,7 +39,7 @@ const WithLayout = Component => {
           avatar={buildAvatar(aboutData)}
         />
 
-        <Navigation business={aboutData} />
+        <Navigation business={aboutData} navLayout="logoLeft" />
 
         {!hidePageHero && (
           <PageHero

@@ -15,7 +15,7 @@ const ContentComponent = ({
 
   return (
     <div
-      className={`${styles.containerStyle} ${reversed ? 'order-first' : ''}`}
+      className={`${styles.containerStyle} ${reversed ? 'md:order-first' : ''}`}
     >
       <h4 className={`${styles.titleStyle}`}>{title}</h4>
       {subtitle && <h5 className={styles.subtitleStyle}>{subtitle}</h5>}

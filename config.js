@@ -1,7 +1,8 @@
-const businessId = 'bzn-0bgGnwafSXSvWPNV1T0OYw';
-const domain = 'thehopscompany.com';
+const businessId = 'bzn-lR5SB-VRRM62Q5EbjJVO2g';
+const poweredId = '573c99987455de37e2a63560';
+const domain = 'https://www.arezzowestport.com/';
 const iframeURL =
-  'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11986.922256366732!2d-73.0520863!3d41.3147247!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e7dfa54b91a211%3A0xf4d467e609ebc6bb!2sTHC%20The%20Hops%20Company!5e0!3m2!1sen!2sus!4v1692990685852!5m2!1sen!2sus';
+  'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12018.976690198839!2d-73.3642158!3d41.1401104!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e81bc4ae726687%3A0x2a36d268c64d2630!2sArezzo%20Ristorante!5e0!3m2!1sen!2sus!4v1693504379179!5m2!1sen!2sus';
 const iframe = `<iframe src="${iframeURL}" width="600" height="450" className="w-full h-full"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
 const primaryColor = '#C6AB86';
 const secondaryColor = '#A1815B';
@@ -31,106 +32,53 @@ const routes = [
   },
 
   {
-    name: 'Menus',
+    name: 'Menu',
     isPrimaryCalledToAction: false,
-    url: '',
-    children: [
-      {
-        name: 'On Tap',
-        isPrimaryCalledToAction: false,
-        pageHero: '',
-        url: 'https://business.untappd.com/embeds/iframes/22705/86629',
-        tag: 'menus',
-      },
-      {
-        name: 'Drinks',
-        isPrimaryCalledToAction: false,
-        url: '',
-        seoPageTitle: '',
-        tag: 'menus',
-        path: '/drinks',
-      },
-      {
-        name: 'Menu',
-        isPrimaryCalledToAction: false,
-        url: '',
-        seoPageTitle: '',
-        tag: 'menus',
-        path: '/menu',
-      },
-    ],
+    path: '/menu',
+    pageHero: 'menu-pagehero',
   },
 
   {
-    name: 'Events & Functions',
+    name: 'Gallery',
     isPrimaryCalledToAction: false,
-    url: '',
-    children: [
-      {
-        name: 'Events',
-        isPrimaryCalledToAction: false,
-        url: '',
-        seoPageTitle: '',
-        tag: 'discover',
-        path: '/events',
-      },
-      {
-        name: 'Private Events & Parties',
-        isPrimaryCalledToAction: false,
-        url: '',
-        seoPageTitle: '',
-        tag: 'discover',
-        path: '/private-events-and-parties',
-      },
-    ],
+    path: '/gallery',
   },
 
   {
-    name: 'Media',
+    name: 'Order Online',
     isPrimaryCalledToAction: false,
-    url: '',
-    children: [
-      {
-        name: 'News',
-        isPrimaryCalledToAction: false,
-        url: '',
-        seoPageTitle: '',
-        path: '/news',
-      },
-      {
-        name: 'Gallery',
-        isPrimaryCalledToAction: false,
-        url: '',
-        seoPageTitle: '',
-        path: '/gallery',
-      },
-    ],
-  },
-
-  {
-    name: 'Gift Cards',
-    isPrimaryCalledToAction: false,
-    url: 'https://swipeit.com/co-branded/merchant/the-hops-company-9639',
+    url: 'https://order.toasttab.com/online/arezzo-ristorante-5-riverside-ave',
     seoPageTitle: '',
     tag: 'discover',
+  },
+
+  {
+    name: 'Reservations',
+    isPrimaryCalledToAction: false,
+    seoPageTitle: '',
+    tag: 'discover',
+    path: '/reservations',
+  },
+
+  {
+    name: 'Events',
+    isPrimaryCalledToAction: false,
+    path: '/events',
+  },
+  {
+    name: 'Private Parties',
+    isPrimaryCalledToAction: true,
+    seoPageTitle: '',
+    path: '/private-parties',
   },
 
   {
     name: 'Contact',
     isPrimaryCalledToAction: false,
-    pageHero: 'Contact-heropage',
     seoPageTitle: '',
     tag: 'discover',
     path: '/contact',
     customPageHeroTitle: ' ',
-  },
-  {
-    name: 'Weddings',
-    isPrimaryCalledToAction: true,
-    url: '',
-    seoPageTitle: '',
-    tag: 'discover',
-    path: '/weddings',
   },
 ];
 
@@ -149,6 +97,7 @@ const hardCodedAddressURL = '';
 
 module.exports = {
   businessId,
+  poweredId,
   domain,
   routes,
   iframe,

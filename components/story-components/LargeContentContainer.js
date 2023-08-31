@@ -24,11 +24,11 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
       ? Object.keys(story.links)[0]
       : '';
     const linkAddress = story.links[linkTitle];
-    const noStoryContent = !story.title || !story.subtitle;
+    const noStoryContent = !story.title && !story.subtitle;
     return (
       <div
         className={`xl:bg-fixed screen w-full bg-cover flex justify-center items-center  relative bg-center  ${solidBg} ${
-          noStoryContent ? 'py-32 md:py-64' : 'p-7 px-12 py-16'
+          noStoryContent ? 'py-32 md:py-64' : 'p-7 px-12 py-16 lg:py-40'
         }`}
         style={
           solidBg
