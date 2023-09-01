@@ -40,12 +40,12 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
       >
         <div className="absolute top-0 left-0 w-full h-full bg-dark opacity-10 "></div>
         <div
-          className={`max-w-md m-auto text-white relative text-center bg-black bg-opacity-80 p-4 md:p-12  border-2 border-primary rounded opac-content ${
+          className={`max-w-md m-auto text-white relative text-center bg-dark bg-opacity-40 p-4 md:p-12  border-2 border-green-white rounded opac-content ${
             noStoryContent && 'hidden'
           }`}
         >
           <div className="mb-6  text-md">
-            <h4 className="text-2xl md:text-5xl font-display text-primary uppercase font-bold">
+            <h4 className="text-2xl md:text-5xl font-display text-white uppercase font-bold">
               {story.title}
             </h4>
           </div>
@@ -89,7 +89,7 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
         <div className="absolute top-0 left-0 w-full h-full "></div>
         <div className="max-w-xl m-auto text-dark relative text-center">
           <div className="mb-6 leading-7 text-md">
-            <h4 className="text-3xl lg:text-4xl  font-display text-primary uppercase">
+            <h4 className="text-3xl lg:text-4xl  font-display text-white uppercase">
               {story.title}
             </h4>
           </div>

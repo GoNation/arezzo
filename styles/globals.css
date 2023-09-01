@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=BenchNine&family=Noto+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -348,7 +348,7 @@ background-image: url("https://www.transparenttextures.com/patterns/crossword.pn
 
 /* For all text elements in .weddings-page  */
 
-.weddings-page h4,
+/* .weddings-page h4,
 .weddings-page h3,
 .weddings-page h2,
 .weddings-page h1 {
@@ -380,15 +380,4 @@ background-image: url("https://www.transparenttextures.com/patterns/crossword.pn
 }
 
 /* .large-content-wedding second h4 */
-.large-content-wedding .sub {
-	@apply text-white font-body not-italic text-sm font-light ;
-}
-
-.large-content-wedding .opac-content {
-	@apply !bg-opacity-40 border-forestGreenLight bg-green-900 shadow-none;
-}
-
-.large-content-wedding a {
-	@apply text-sm text-white border-white px-8 py-2 hover:bg-forestGreen hover:text-white;
-}
 

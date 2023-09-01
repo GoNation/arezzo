@@ -66,19 +66,18 @@ const routes = [
     path: '/events',
   },
   {
-    name: 'Private Parties',
-    isPrimaryCalledToAction: true,
-    seoPageTitle: '',
-    path: '/private-parties',
-  },
-
-  {
     name: 'Contact',
     isPrimaryCalledToAction: false,
     seoPageTitle: '',
     tag: 'discover',
     path: '/contact',
     customPageHeroTitle: ' ',
+  },
+  {
+    name: 'Private Parties',
+    isPrimaryCalledToAction: true,
+    seoPageTitle: '',
+    path: '/private-parties',
   },
 ];
 

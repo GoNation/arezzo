@@ -13,8 +13,9 @@ import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import { filterAndSortStories } from 'helpers';
 import findStoryByName from 'helpers/findStoryByName';
 import { Hero } from 'components/heros/Hero';
+import buildCover from 'helpers/general/buildCover';
 
-const Home = ({ storiesData, shoutData, filesData }) => {
+const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
   //   const homepageSliderStories = filterAndSortStories(
   //     storiesData,
   //     'homepage slider'
@@ -28,7 +29,11 @@ const Home = ({ storiesData, shoutData, filesData }) => {
   return (
     <>
       <Hero story={findStoryByName('Homepage hero', storiesData.general)} />
-      <ExpandableShout isExpandable={false} shout={shoutData.shout} />
+      <ExpandableShout
+        isExpandable={false}
+        shout={shoutData.shout}
+        bg={buildCover(aboutData)}
+      />
       <LargeContentContainer
         story={findStoryByName('Homepage story 2', storiesData.general)}
       />

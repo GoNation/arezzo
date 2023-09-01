@@ -8,19 +8,19 @@ import { sideBySideConfig } from 'content/componentConfigs';
 findStoryByName;
 import PartiesForm from 'components/contact/PartiesForm';
 
-const PrivateEventsAndParties = ({ storiesData }) => {
-  const privateEventsAndPartiesStories = [
-    findStoryByName('Private Events & Parties Story 1', storiesData.general),
-    findStoryByName('Private Events & Parties Story 2', storiesData.general),
-    findStoryByName('Private Events & Parties Story 3', storiesData.general),
-    findStoryByName('Private Events & Parties Story 4', storiesData.general),
-    findStoryByName('Private Events & Parties Story 5', storiesData.general),
-    findStoryByName('Private Events & Parties Story 6', storiesData.general),
-  ];
+const PrivateParties = ({ storiesData }) => {
+  //   const privateEventsAndPartiesStories = [
+  //     findStoryByName('Private Events & Parties Story 1', storiesData.general),
+  //     findStoryByName('Private Events & Parties Story 2', storiesData.general),
+  //     findStoryByName('Private Events & Parties Story 3', storiesData.general),
+  //     findStoryByName('Private Events & Parties Story 4', storiesData.general),
+  //     findStoryByName('Private Events & Parties Story 5', storiesData.general),
+  //     findStoryByName('Private Events & Parties Story 6', storiesData.general),
+  //   ];
 
   return (
     <section className="min-h-screen">
-      <LargeContentContainer
+      {/* <LargeContentContainer
         story={privateEventsAndPartiesStories[0]}
         solidBg="#ffffff"
       />
@@ -34,12 +34,12 @@ const PrivateEventsAndParties = ({ storiesData }) => {
           />
         );
       })}
-      <PartiesForm name="Private Parties Form" />
+      <PartiesForm name="Private Parties Form" /> */}
     </section>
   );
 };
 
-export default WithLayout(PrivateEventsAndParties);
+export default WithLayout(PrivateParties);
 
 export async function getStaticProps() {
   const { poweredImagesData, aboutData, storiesData } = await fetchGoNationData(

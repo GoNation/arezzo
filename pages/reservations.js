@@ -6,8 +6,8 @@ import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import findStoryByName from 'helpers/findStoryByName';
 import { businessId } from 'config';
 
-const About = ({ storiesData, pageData }) => {
-  const story = findStoryByName(pageData?.aboutStoryName, storiesData.general);
+const Reservations = ({ storiesData, pageData }) => {
+  //   const story = findStoryByName(pageData?.reservationsStoryName, storiesData.general);
   return (
     <section className="about-section p-4 bg-primary ">
       <div className="rounded bg-dark max-w-xl xl:max-w-3xl mx-auto -mt-20 md:-mt-28 lg:-mt-32 relative z-10 p-4 ">
@@ -18,7 +18,7 @@ const About = ({ storiesData, pageData }) => {
   );
 };
 
-export default WithLayout(About);
+export default WithLayout(Reservations);
 
 export async function getStaticProps() {
   const { poweredImagesData, aboutData, storiesData } = await fetchGoNationData(

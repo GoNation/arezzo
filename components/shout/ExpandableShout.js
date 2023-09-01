@@ -6,7 +6,11 @@ dayjs.extend(relativeTime);
 
 import parseCloudinaryImage from 'helpers/cloudinary/parseCloudinaryImage';
 
-function ExpandableShout({ shout, isExpandable = true }) {
+function ExpandableShout({
+  shout,
+  isExpandable = true,
+  bg = 'https://res.cloudinary.com/gonation/image/upload/v1693076784/sites/thc/esmith7196_Capture_a_high-quality_photograph_of_a_rich_and_text_3ded2088-2032-4fc6-82f7-99c6feb728cc.png',
+}) {
   const [expanded, setExpanded] = useState(!isExpandable);
   const [imageExpanded, setImageExpanded] = useState(false);
   const [lightboxVisible, setLightboxVisible] = useState(false);
@@ -41,7 +45,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
     <div className="relative md:max-w-none mx-auto flex flex-col md:flex-row items-start md:items-center ">
       <div className="relative order-2 md:order-1">{renderImage()}</div>
       <div className="md:pr-8 sm:max-w-md md:max-w-none order-1 md:order-1 mb-8 md:mb-0 md:px-8 lg:px-16">
-        <p className="font-bold inline text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-primary font-display leading-10">
+        <p className="font-bold inline text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-white font-display leading-10">
           {shout?.title || 'Recent Shout:'} <br />
         </p>
         <p className="text-lg md:text-xl lg:text-2xl my-2 md:my-6 text-white font-bold max-w-2xl xl:max-w-3xl">
@@ -49,9 +53,13 @@ function ExpandableShout({ shout, isExpandable = true }) {
         </p>
 
         <Link target={linkIsUrl} href={`${linkAddress}`}>
-          <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2 border-primary border-2 xl:text-xl hover:bg-primary hover:text-white transition-all duration-500 ease">
-            {linkTitle}
-          </button>
+          {linkTitle ? (
+            <button className="bg-transparent text-primary py-2 px-8 font-bold uppercase text-base mt-2  border-2 xl:text-xl hover:bg-primary hover:text-white transition-all duration-500 ease">
+              {linkTitle}
+            </button>
+          ) : (
+            ''
+          )}
         </Link>
       </div>
     </div>
@@ -63,7 +71,7 @@ function ExpandableShout({ shout, isExpandable = true }) {
         expanded ? 'py-12' : ''
       } relative`}
       style={{
-        backgroundImage: `url(https://res.cloudinary.com/gonation/image/upload/v1693076784/sites/thc/esmith7196_Capture_a_high-quality_photograph_of_a_rich_and_text_3ded2088-2032-4fc6-82f7-99c6feb728cc.png)`,
+        backgroundImage: `url(${bg})`,
         backgroundSize: 'cover',
       }}
     >

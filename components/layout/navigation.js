@@ -74,10 +74,10 @@ const Navigation = ({
       ) : (
         <LinkItem
           route={route}
-          className={` text-sm md:text-base lg:text-xl uppercase font-bold hover:underline ${
+          className={` text-sm md:text-base lg:text-lg uppercase font-bold hover:border-l  px-2 ${
             route.isPrimaryCalledToAction
-              ? 'lg:bg-white lg:text-forestGreen lg:px-5 lg:py-1 border border-forestGreen hover:bg-forestGreen hover:text-white no-underline hover:no-underline'
-              : 'text-white'
+              ? 'lg:bg-white lg:text-primary lg:px-5 lg:py-1 border border-primary hover:text-green-600 no-underline hover:no-underline transition-all duration-500 '
+              : 'text-white hover:text-primary  transition-all duration-500 hover:bg-white hover:border-l-primary'
           } `}
         />
       )}
@@ -85,7 +85,9 @@ const Navigation = ({
   );
 
   const renderLogo = () => (
-    <div className="transition-all bg-white max-w-[250px] md:max-w-sm ">
+    <div
+      className={`transition-all bg-white max-w-[250px] md:max-w-sm py-2 px-4 rounded-sm border-primary border`}
+    >
       <Link href={'/'}>
         <Image
           className="transition-all"
@@ -99,7 +101,7 @@ const Navigation = ({
   );
 
   const renderNavItems = () => (
-    <div className="hidden lg:flex space-x-3">{routes.map(renderRoute)}</div>
+    <div className={`hidden lg:flex space-x-3`}>{routes.map(renderRoute)}</div>
   );
 
   const renderNavigationContent = () => {
@@ -130,7 +132,7 @@ const Navigation = ({
 
   return (
     <div className={`absolute w-full z-50 transition-all`}>
-      <div className="container max-w-8xl  mx-auto px-4 py-4">
+      <div className="container max-w-8xl  mx-auto px-4 py-4 pt-12">
         {renderNavigationContent()}
 
         <div className="lg:hidden absolute right-8 top-14 md:top-16 z-10">

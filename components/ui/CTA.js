@@ -10,7 +10,7 @@ const CTA = ({ children, url, primaryFilled, unset, tertiary }) => {
   const primaryFilledStyle =
     'bg-dark text-primary uppercase border-2 border-light hover:text-primary  hover:text-white px-8 py-2 md:py-4 md:px-12';
   const tertiaryStyle =
-    'bg-tertiary text-primary border-2 border-secondary text-dark hover:bg-secondary  hover:text-dark px-8 py-3 xl:px-12 xl:py-3 text-lg lg:text-xl xl:text-2xl uppercase bold ease-in-out duration-500';
+    'bg-white text-dark border-2 border-dark  hover:text-primary px-8 py-3 xl:px-12 xl:py-3 text-lg lg:text-xl xl:text-2xl uppercase bold ease-in-out duration-500';
   const defaultStyle =
     'bg-tertiary text-primary border-4 border-primary font-bold text-dark hover:bg-primary  hover:text-tertiary ease-in-out duration-500 ';
 
