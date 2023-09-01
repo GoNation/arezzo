@@ -58,6 +58,7 @@ const routes = [
     seoPageTitle: '',
     tag: 'discover',
     path: '/reservations',
+    customPageHeroTitle: 'Secure Your Seat in Our Tuscan Oasis',
   },
 
   {
@@ -71,13 +72,15 @@ const routes = [
     seoPageTitle: '',
     tag: 'discover',
     path: '/contact',
-    customPageHeroTitle: ' ',
+    customPageHeroTitle: 'Connect with Arezzo',
   },
   {
     name: 'Private Parties',
     isPrimaryCalledToAction: true,
     seoPageTitle: '',
     path: '/private-parties',
+    customPageHeroTitle: 'Host Your Signature Tuscan Affair at Arezzo',
+    pageHero: 'private-parties-pagehero',
   },
 ];
 
