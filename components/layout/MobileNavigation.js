@@ -26,7 +26,7 @@ function MobileNavigation({ navVariants, business, logo }) {
             <span className="font-bold">Address:</span> {printAddress(business)}
           </p> */}
         <div className="md:hidden ">
-          <Link href="/" className="absolute top-10 left-8">
+          <Link href="/" className="absolute top-10 left-2">
             <Image
               src={logo}
               width={mobileLogoSize}
@@ -35,7 +35,7 @@ function MobileNavigation({ navVariants, business, logo }) {
           </Link>
         </div>
         <div className="hidden md:block">
-          <Link href="/" className="absolute top-10 left-8">
+          <Link href="/" className="absolute top-10 left-2">
             <Image src={logo} width={400} height={400}></Image>
           </Link>
         </div>
@@ -52,7 +52,7 @@ function MobileNavigation({ navVariants, business, logo }) {
           }, [])
           .map(route => (
             <Link
-              className="text-gray-900 text-ston hover:text-primary  font-display font-bold uppercase  text-xl  sm:text-4xl mb-4 md:mb-8"
+              className="text-primary tracking-wide font-light text-ston hover:text-primary  font-display uppercase  text-base sm:text-lg mb-4 md:mb-8 md:text-xl"
               key={slugify(route.name, {
                 lower: true,
               })}

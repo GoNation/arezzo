@@ -409,3 +409,8 @@ body p {
 .home-body p {
 	@apply text-white;
 }
+
+
+.large-content-container p {
+	@apply text-white font-body mb-12;
+}

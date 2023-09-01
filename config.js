@@ -15,7 +15,7 @@ const routes = [
   {
     name: 'Home', // This is the name that will appear in the navigation
     path: '/', // This is the path that will be used to build the URL
-    pageDescription: 'Welcome to our homepage', // This is the description that will appear in the <head> tag. If not provided, the business description will be used.
+    pageDescription: '', // This is the description that will appear in the <head> tag. If not provided, the business description will be used.
     customPageHero: 'home-pagehero', // This is the name of the image that will be used as the page hero. If not provided, we will attempt to find the page hero based on the page name.
     hidePageHero: true, // This will hide the page hero if set to true
     isPrimaryCalledToAction: false,
@@ -27,7 +27,7 @@ const routes = [
     isPrimaryCalledToAction: false,
     pageHero: 'about-pagehero',
     tag: 'discover',
-    customPageHeroTitle: 'WELCOME TO THC',
+    customPageHeroTitle: 'Discover Our Tuscan Journey in Westport',
     aboutStoryName: 'about-page-content',
   },
 

@@ -101,10 +101,10 @@ export const Hero = ({
       <div className="absolute hidden lg:block top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black to-transparent z-10"></div>
 
       {/* {shout ? <Shout data={shout}></Shout> : ''} */}
-      <div className="absolute md:top-0 bottom-0 w-full flex flex-col md:flex-row  md:justify-center pr-12   justify-center z-0">
-        <div className=" absolute h-full left-0 top-0 w-full hidden  lg:flex justify-center items-start  lg:items-center lg:justify-center ">
+      <div className="absolute md:top-0 bottom-0 w-full flex flex-col md:flex-row  md:justify-center pr-12   justify-center items-center h-full bottom-0 left-0 right-0 top-0 flex z-10">
+        <div className=" absolute flex h-full left-0 top-0 w-full  hidden md:flex flex-col justify-center items-center  lg:items-center lg:justify-center z-10 ">
           {showLogo ? (
-            <div className="bg-white px-4 py-2 roundedd">
+            <div className="bg-white px-4 py-2 rounded   lg:flex">
               <Image
                 width={500}
                 height={500}
@@ -117,7 +117,7 @@ export const Hero = ({
           )}
           {story?.title?.length ? (
             <Title
-              size={`text-3xl lg:text-6xl xl:text-7xl mt-4 text-white font-display uppercase text-shadow max-w-2xl`}
+              size={`order-first text-3xl md:text-4xl lg:text-5xl mb-8 mt-4 text-white font-display uppercase text-shadow tracking-wide`}
               center={true}
             >
               {story.title}
@@ -127,7 +127,7 @@ export const Hero = ({
           )}
         </div>
       </div>
-      <OpacityBG strength="opacity-10"></OpacityBG>
+      <OpacityBG strength="opacity-20"></OpacityBG>
     </div>
   );
 };

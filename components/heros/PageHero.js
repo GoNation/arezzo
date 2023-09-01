@@ -26,7 +26,7 @@ const PageHero = props => {
           </div>
         )}
         <h1
-          className={`relative  text-5xl sm:text-7xl xl:text-8xl text-white   font-bold flex justify-center items-center  mt-16 lg:mt-52  text-center ${
+          className={`relative  text-xl md:text-3xl lg:text-4xl xl:text-5xl text-white   font-light tracking-wide italic flex justify-center items-center  mt-16  text-center ${
             props.pageTitle === 'Weddings'
               ? 'font-wedding italic '
               : 'font-display uppercase'

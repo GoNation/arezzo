@@ -88,17 +88,19 @@ const Navigation = ({
 
   const renderLogo = () => (
     <div
-      className={`transition-all bg-white max-w-[250px] md:max-w-sm py-2 px-4 rounded-sm border-primary border xl:hidden`}
+      className={`transition-all bg-white max-w-[250px] py-2 px-4 rounded-sm border-primary border md:absolute md:top-0 md:left-0 md:max-w-none flex justify-center w-full right-0 w-full`}
     >
-      <Link href={'/'}>
-        <Image
-          className="transition-all"
-          src={logo}
-          alt="Business Logo"
-          width={500}
-          height={200}
-        />
-      </Link>
+      <div className="md:w-40">
+        <Link href={'/'}>
+          <Image
+            className="transition-all"
+            src={logo}
+            alt="Business Logo"
+            width={500}
+            height={200}
+          />
+        </Link>
+      </div>
     </div>
   );
 

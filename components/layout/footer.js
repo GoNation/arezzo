@@ -36,8 +36,8 @@ const RouteLinks = ({ routes, tag }) => (
 const Footer = ({ business }) => {
   return (
     <>
-      <footer className="bg-background text-dark py-6 md:py-8 md:px-4 footer">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 lg:grid-cols-4 max-w-6xl">
+      <footer className="bg-background border-t-2 border-primary text-dark py-12 md:py-24 md:px-4 footer">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 lg:grid-cols-4 max-w-7xl">
           {/* Logo and Description */}
           <div className=" md:col-span-3 lg:col-span-1 md:order-10 lg:order-first ">
             <div className=" inline-block  py-2 px-4 rounded mb-2">
