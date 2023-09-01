@@ -13,15 +13,19 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
-  //   options: {
-  //     safelist: [
-  //       'grid',
-  //       'grid-cols-1',
-  //       'grid-cols-2',
-  //       'md:grid-cols-2',
-  //       'md:gap-8',
-  //     ], // add classes here that you want to ensure aren't purged
-  //   },
+  options: {
+    safelist: [
+      'grid',
+      'grid-cols-1',
+      'grid-cols-2',
+      'md:grid-cols-2',
+      'md:gap-8',
+      // get all py classes py-2, py-4, py-6, etc
+      'py-24',
+      'my-8',
+      'md:my-8',
+    ], // add classes here that you want to ensure aren't purged
+  },
 
   theme: {
     extend: {
@@ -31,6 +35,7 @@ module.exports = {
         sansSerif: ['Lato', 'system-ui'],
         display: ['Playfair Display', 'sans-serif'],
         body: ['Lato', 'sans-serif'],
+        wedding: ['', 'cursive'],
       },
       colors: {
         primary: '#683A1D',

@@ -27,8 +27,12 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
   //   );
 
   return (
-    <>
-      <Hero story={findStoryByName('Homepage hero', storiesData.general)} />
+    <section className="home">
+      <Hero
+        story={findStoryByName('Homepage hero', storiesData.general)}
+        showLogo
+        business={aboutData}
+      />
       <ExpandableShout
         isExpandable={false}
         shout={shoutData.shout}
@@ -37,27 +41,31 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
       <LargeContentContainer
         story={findStoryByName('Homepage story 2', storiesData.general)}
       />
-      <StorySection
-        storiesData={storiesData.general}
-        storiesConfig={[
-          {
-            storyName: 'Homepage story 4',
-            config: filesData[0],
-          },
+      <div className="lg:py-24">
+        <StorySection
+          storiesData={storiesData.general}
+          storiesConfig={[
+            {
+              storyName: 'Homepage story 4',
+              config: { ...filesData[0], reversed: false },
+            },
 
-          // ... add more stories as needed
-        ]}
-      />
+            // ... add more stories as needed
+          ]}
+        />
+      </div>
       <LargeContentContainer
         story={findStoryByName('Homepage story 3', storiesData.general)}
       />
-      <StorySection
-        storiesData={storiesData.general}
-        storiesConfig={[
-          { storyName: 'Homepage story 5', config: filesData[2] },
-          // ... add more stories as needed
-        ]}
-      />
+      <div className="lg:py-24">
+        <StorySection
+          storiesData={storiesData.general}
+          storiesConfig={[
+            { storyName: 'Homepage story 5', config: filesData[0] },
+            // ... add more stories as needed
+          ]}
+        />
+      </div>
       <LargeContentContainer
         story={findStoryByName('Homepage story 6', storiesData.general)}
       />
@@ -88,7 +96,7 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
       <LargeContentContainer
         story={findStoryByName('Homepage story 5', storiesData.general)}
       /> */}
-    </>
+    </section>
   );
 };
 

@@ -74,9 +74,11 @@ const Navigation = ({
       ) : (
         <LinkItem
           route={route}
-          className={` text-sm md:text-base lg:text-lg uppercase font-bold hover:border-l  px-2 ${
+          className={`font-display tracking-wider text-sm md:text-base lg:text-lg uppercase font-bold hover:border-l ${
+            route.hidden && 'hidden'
+          }  px-2 ${
             route.isPrimaryCalledToAction
-              ? 'lg:bg-white lg:text-primary lg:px-5 lg:py-1 border border-primary hover:text-green-600 no-underline hover:no-underline transition-all duration-500 '
+              ? 'lg:bg-white lg:text-primary lg:px-5 lg:py-1 border border-primary hover:text-dark no-underline hover:no-underline transition-all duration-500 '
               : 'text-white hover:text-primary  transition-all duration-500 hover:bg-white hover:border-l-primary'
           } `}
         />
@@ -86,7 +88,7 @@ const Navigation = ({
 
   const renderLogo = () => (
     <div
-      className={`transition-all bg-white max-w-[250px] md:max-w-sm py-2 px-4 rounded-sm border-primary border`}
+      className={`transition-all bg-white max-w-[250px] md:max-w-sm py-2 px-4 rounded-sm border-primary border xl:hidden`}
     >
       <Link href={'/'}>
         <Image
@@ -132,14 +134,14 @@ const Navigation = ({
 
   return (
     <div className={`absolute w-full z-50 transition-all`}>
-      <div className="container max-w-8xl  mx-auto px-4 py-4 pt-12">
+      <div className="container max-w-9xl  mx-auto px-4 py-4 pt-12 flex items-center justify-between xl:justify-center">
         {renderNavigationContent()}
 
-        <div className="lg:hidden absolute right-8 top-14 md:top-16 z-10">
+        <div className="lg:hidden  right-8 top-14 md:top-16 z-10">
           <Hamburger
             toggled={navIsOpen}
             toggle={setNavIsOpen}
-            color={hasScrolled() ? '#C2BAB4' : '#ffffff'}
+            color={navIsOpen ? '#ffffff' : '#ffffff'}
           />
         </div>
 

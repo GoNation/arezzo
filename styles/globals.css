@@ -392,3 +392,20 @@ background-image: url("https://www.transparenttextures.com/patterns/crossword.pn
 .about-body h4 {
 	@apply font-display text-2xl md:text-4xl mb-4 text-primary;
 }
+
+body p,
+body a {
+	@apply text-gray-800 font-light;
+}
+
+body p {
+	@apply text-lg
+}
+
+.home p {
+	@apply !max-w-lg
+}
+
+.home-body p {
+	@apply text-white;
+}

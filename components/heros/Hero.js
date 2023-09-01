@@ -7,6 +7,7 @@ import Shout from '../shout/Shout';
 import OpacityBG from '../ui/OpacityBG';
 import ShoutCard from '../shout/ShoutCard';
 import Title from 'components/ui/Title';
+import buildAvatar from 'helpers/general/buildAvatar';
 
 export const Hero = ({
   imgClassList = 'h-screen md:h-[900px] lg:h-[800px] xl:h-[850px]',
@@ -76,6 +77,7 @@ export const Hero = ({
           />
         ))}
       </Carousel>
+      <div className="absolute hidden lg:block top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black to-transparent z-10"></div>
 
       {/* {shout ? <Shout data={shout}></Shout> : ''} */}
       <div className="absolute md:top-0 bottom-0 w-full flex flex-col md:flex-row z-20  md:justify-center pr-12   justify-end ">
@@ -88,8 +90,19 @@ export const Hero = ({
           /> */}
         </div>
 
-        <div className=" absolute left-0 top-0 w-full  flex justify-center items-start  lg:items-center lg:justify-center ">
-          {/* {showLogo ? <img className=" " src={`/logo.png`} /> : ''} */}
+        <div className=" absolute h-full left-0 top-0 w-full hidden  lg:flex justify-center items-start  lg:items-center lg:justify-center ">
+          {showLogo ? (
+            <div className="bg-white px-4 py-2 roundedd">
+              <Image
+                width={500}
+                height={500}
+                className=" "
+                src={buildAvatar(business)}
+              />
+            </div>
+          ) : (
+            ''
+          )}
           {story?.title?.length ? (
             <Title
               size={`text-3xl lg:text-6xl xl:text-7xl mt-4 text-white font-display uppercase text-shadow max-w-2xl`}

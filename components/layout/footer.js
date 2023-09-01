@@ -36,34 +36,34 @@ const RouteLinks = ({ routes, tag }) => (
 const Footer = ({ business }) => {
   return (
     <>
-      <footer className="bg-[#191612] text-white py-6 md:py-8 md:px-4 footer">
+      <footer className="bg-background text-dark py-6 md:py-8 md:px-4 footer">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 lg:grid-cols-4 max-w-6xl">
           {/* Logo and Description */}
           <div className=" md:col-span-3 lg:col-span-1 md:order-10 lg:order-first ">
-            <div className="bg-white inline-block w-32 rounded-full mb-2">
+            <div className=" inline-block  py-2 px-4 rounded mb-2">
               <img src={buildAvatar(business)} alt={business.name} />
             </div>
-            <p className="mb-4 max-w-xs text-sm text-white font-body"></p>
+            <p className="mb-4 max-w-xs text-sm text-dark font-body"></p>
             <div className="flex">
-              <SocialLinks links={business.links} />
+              <SocialLinks links={business.links} fill="#000000" />
             </div>
           </div>
 
           {/* Discover */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2 text-2xl">Discover</h4>
+            <h4 className="font-bold mb-2 text-2xl text-primary">Discover</h4>
             <RouteLinks routes={routes} tag="discover" />
           </div>
 
           {/* Menus */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2 text-2xl">Menus</h4>
+            <h4 className="font-bold mb-2 text-2xl text-primary">Menus</h4>
             <RouteLinks routes={routes} tag="menus" />
           </div>
 
           {/* Contact */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2 text-2xl">Contact</h4>
+            <h4 className="font-bold mb-2 text-2xl text-primary">Contact</h4>
             <div className="flex items-center mb-2">
               <span className="mr-1">
                 <FaMapMarkerAlt />
@@ -80,7 +80,7 @@ const Footer = ({ business }) => {
         </div>
       </footer>
 
-      <div className="text-center py-1 pb-2 bg-secondary border-t-2 border-t-secondary justify-center flex">
+      <div className="text-center py-1 pb-2 bg-dark border-t-2 border-t-secondary justify-center flex">
         <Link
           href="https://www.gonation.com/"
           target="_blank"

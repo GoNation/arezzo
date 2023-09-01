@@ -1,7 +1,7 @@
 ---
 templateKey: sidebysideimage
 title: SideBySideVariation1
-sideBySideImageContainerStyle: grid grid-cols-1 md:grid-cols-2 gap-0 md:py-30 p-0 bg-tertiary md:gap-8 md:py-4 md:px-4
+sideBySideImageContainerStyle: grid grid-cols-1 md:grid-cols-2 gap-0 md:py-30 p-0 bg-tertiary md:gap-8 md:px-4 md:my-8
 reversed: true
 ctaConfig:
   baseStyle: text-lg px-12 py-4 transition-all duration-1000 uppercase font-body
@@ -12,7 +12,7 @@ contentConfig:
   containerStyle: bg-background flex flex-col items-center justify-center py-24 px-8
   titleStyle: text-primary font-display text-4xl md:text-5xl font-bold uppercase
   subtitleStyle: text-primary font-display text-2xl uppercase
-  bodyContainerStyle: font-bold my-2 mb-4 text-center max-w-lg mx-auto white-sideby
+  bodyContainerStyle: font-bold my-4 mb-4 text-center max-w-lg white-sideby text-gray-800
 imageConfig:
   containerStyle: h-96
   relativeContainerStyle: relative h-full w-full pb-100%

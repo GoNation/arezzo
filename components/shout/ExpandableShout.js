@@ -45,10 +45,10 @@ function ExpandableShout({
     <div className="relative md:max-w-none mx-auto flex flex-col md:flex-row items-start md:items-center ">
       <div className="relative order-2 md:order-1">{renderImage()}</div>
       <div className="md:pr-8 sm:max-w-md md:max-w-none order-1 md:order-1 mb-8 md:mb-0 md:px-8 lg:px-16">
-        <p className="font-bold inline text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl text-white font-display leading-10">
+        <p className="font-bold inline text-4xl sm:text-5xl lg:text-5xl text-white font-display leading-10">
           {shout?.title || 'Recent Shout:'} <br />
         </p>
-        <p className="text-lg md:text-xl lg:text-2xl my-2 md:my-6 text-white font-bold max-w-2xl xl:max-w-3xl">
+        <p className="text-lg md:text-lg my-2 md:my-6 text-white font-bold max-w-2xl xl:max-w-3xl">
           {shout?.text}
         </p>
 
@@ -67,7 +67,7 @@ function ExpandableShout({
 
   return (
     <div
-      className={`relative p-6 md:p-0 lg:p-0 w-full lg:bg-fixed ${
+      className={`relative p-6 md:p-0 lg:p-0 w-full lg:bg-fixed md:py-16 ${
         expanded ? 'py-12' : ''
       } relative`}
       style={{
@@ -75,7 +75,7 @@ function ExpandableShout({
         backgroundSize: 'cover',
       }}
     >
-      <div className=" absolute left-0 top-0 w-full h-full bg-black bg-opacity-40 md:bg-opacity-0 md:bg-gradient-to-r md:from-black md:via-black/60 md:to-transparent"></div>
+      <div className=" absolute left-0 top-0 w-full h-full bg-primary bg-opacity-80 md:bg-gradient-to-r md:from-black md:via-black/60 md:to-transparent"></div>
       <p className="absolute bottom-4 right-4 text-xs md:text-sm xl:text-base italic text-white">
         Shouted {dayjs(shout?.createdAt).fromNow()}
       </p>

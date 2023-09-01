@@ -8,8 +8,8 @@ import printAddress from 'helpers/printing/printAddress';
 
 function MobileNavigation({ navVariants, business, logo }) {
   const animatedClassName =
-    'lg:hidden fixed top-0 left-0 w-full w-full h-screen bg-secondary';
-  const mobileLogoSize = 80;
+    'lg:hidden fixed top-0 left-0 w-4/6  h-screen bg-white px-2 pt-4 border-r-2 border-primary z-50';
+  const mobileLogoSize = 200;
   return (
     <motion.div
       initial="closed"
@@ -36,11 +36,11 @@ function MobileNavigation({ navVariants, business, logo }) {
         </div>
         <div className="hidden md:block">
           <Link href="/" className="absolute top-10 left-8">
-            <Image src={logo} width={120} height={120}></Image>
+            <Image src={logo} width={400} height={400}></Image>
           </Link>
         </div>
       </div>
-      <div className=" h-4/5  overflow-y-auto  flex flex-col items-center justify-start md:mt-8">
+      <div className=" h-4/5  overflow-y-auto  flex flex-col items-start justify-start md:mt-8">
         {routes
           .reduce((acc, route) => {
             if (route.children) {
@@ -52,7 +52,7 @@ function MobileNavigation({ navVariants, business, logo }) {
           }, [])
           .map(route => (
             <Link
-              className="text-white font-display font-bold uppercase  text-2xl  sm:text-5xl mb-2 sm:mb-4 md:mb-8"
+              className="text-gray-900 text-ston hover:text-primary  font-display font-bold uppercase  text-xl  sm:text-4xl mb-4 md:mb-8"
               key={slugify(route.name, {
                 lower: true,
               })}
