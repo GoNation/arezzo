@@ -8,9 +8,12 @@ import OpacityBG from '../ui/OpacityBG';
 import ShoutCard from '../shout/ShoutCard';
 import Title from 'components/ui/Title';
 import buildAvatar from 'helpers/general/buildAvatar';
+import printAddress from 'helpers/printing/printAddress';
+import Link from 'next/link';
+import getGoogleString from 'helpers/printing/getGoogleString';
 
 export const Hero = ({
-  imgClassList = 'h-screen md:h-[900px] lg:h-[800px] xl:h-[850px]',
+  imgClassList = 'h-screen md:h-[900px] lg:h-screen',
   imageWrapperClassList = '',
   interval = 6000,
   transitionTime = 3000,
@@ -18,6 +21,7 @@ export const Hero = ({
   shout,
   showLogo = false,
   business,
+  shouldShowPhoneAndDirections = false,
 }) => {
   const [displayShoutOverlay, setDisplayShoutOverlay] = useState(false);
   const defaultImageStyle = 'object-cover flex ';
@@ -47,6 +51,23 @@ export const Hero = ({
 
   return (
     <div className="relative ">
+      {/* Bottom Opacity Overlay */}
+      {shouldShowPhoneAndDirections && (
+        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black to-transparent"></div>
+      )}
+      {/* Phone Number and Address */}
+      {shouldShowPhoneAndDirections && (
+        <div className="absolute bottom-0 w-full justify-center left-1/2 transform -translate-x-1/2 flex items-center space-x-4 pb-4 text-sm sm:text-base hover:text-primary z-10">
+          <Link href={`tel:${business.phone}`} className="text-white">
+            {business.phone}
+          </Link>{' '}
+          {/* Your phone number here */}
+          <span className="text-white">|</span>
+          <Link href={getGoogleString({ ...business })} className="text-white">
+            {printAddress(business)}
+          </Link>
+        </div>
+      )}
       <div className=""></div>
       <Carousel
         animationHandler="fade"
@@ -80,16 +101,7 @@ export const Hero = ({
       <div className="absolute hidden lg:block top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black to-transparent z-10"></div>
 
       {/* {shout ? <Shout data={shout}></Shout> : ''} */}
-      <div className="absolute md:top-0 bottom-0 w-full flex flex-col md:flex-row z-20  md:justify-center pr-12   justify-end ">
-        <div className="lg:absolute ">
-          {/* <ShoutCard
-            displayShoutOverlay={displayShoutOverlay}
-            setDisplayShoutOverlay={setDisplayShoutOverlay}
-            data={shout}
-            business={business}
-          /> */}
-        </div>
-
+      <div className="absolute md:top-0 bottom-0 w-full flex flex-col md:flex-row  md:justify-center pr-12   justify-center z-0">
         <div className=" absolute h-full left-0 top-0 w-full hidden  lg:flex justify-center items-start  lg:items-center lg:justify-center ">
           {showLogo ? (
             <div className="bg-white px-4 py-2 roundedd">

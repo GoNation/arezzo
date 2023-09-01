@@ -57,9 +57,7 @@ const LargeContentContainer = ({ story, solidBg, hideIcon = false }) => {
   return (
     <div
       className={`relative w-full bg-cover flex justify-start items-start lg:bg-fixed ${
-        solidBg
-          ? 'py-16'
-          : 'p-7 px-4 relative bg-center py-32 md:py-96 lg:py-80'
+        solidBg ? 'py-16' : 'p-7 px-4 relative bg-center py-32 md:py-96'
       }`}
       style={ContainerStyles}
     >

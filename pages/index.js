@@ -32,6 +32,7 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
         story={findStoryByName('Homepage hero', storiesData.general)}
         showLogo
         business={aboutData}
+        shouldShowPhoneAndDirections
       />
       <ExpandableShout
         isExpandable={false}
