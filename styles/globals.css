@@ -381,3 +381,14 @@ background-image: url("https://www.transparenttextures.com/patterns/crossword.pn
 
 /* .large-content-wedding second h4 */
 
+
+.about-body p  {
+	@apply text-dark leading-relaxed font-body;
+}
+
+.about-body h1,
+.about-body h2,
+.about-body h3,
+.about-body h4 {
+	@apply font-display text-2xl md:text-4xl mb-4 text-primary;
+}

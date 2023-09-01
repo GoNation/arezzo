@@ -6,13 +6,18 @@ import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import findStoryByName from 'helpers/findStoryByName';
 import { businessId } from 'config';
 
-const About = ({ storiesData, pageData }) => {
+const About = ({ storiesData, pageData, negativeMargin = false }) => {
   const story = findStoryByName(pageData?.aboutStoryName, storiesData.general);
+  const negativeMarginClass = '-mt-20 md:-mt-28 lg:-mt-32';
   return (
-    <section className="about-section p-4 bg-primary ">
-      <div className="rounded bg-dark max-w-xl xl:max-w-3xl mx-auto -mt-20 md:-mt-28 lg:-mt-32 relative z-10 p-4 ">
+    <section className="about-section p-4 bg-white ">
+      <div
+        className={`rounded  max-w-xl xl:max-w-3xl mx-auto  relative z-10 p-4 about-body ${
+          negativeMargin && negativeMarginClass
+        } `}
+      >
         {/* todo bring in story */}
-        {/* <Body body={story.body} /> */}
+        <Body body={story.body} />
       </div>
     </section>
   );

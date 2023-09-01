@@ -28,7 +28,7 @@ const routes = [
     pageHero: 'about-pagehero',
     tag: 'discover',
     customPageHeroTitle: 'WELCOME TO THC',
-    aboutStoryName: 'about-page-story',
+    aboutStoryName: 'about-page-content',
   },
 
   {
