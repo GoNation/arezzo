@@ -50,7 +50,6 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
               storyName: 'Homepage story 4',
               config: { ...filesData[0], reversed: false },
             },
-
             // ... add more stories as needed
           ]}
         />
@@ -70,33 +69,6 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
       <LargeContentContainer
         story={findStoryByName('Homepage story 6', storiesData.general)}
       />
-      {/* <MultiStoryHero
-        stories={[findStoryByName('Homepage hero ', storiesData.general)]}
-        slideDuration={8000}
-      /> */}
-      {/*
-      <ExpandableShout isExpandable={false} shout={shoutData.shout} /> */}
-      {/* <BackgroundVideo
-        videoUrl="https://www.youtube.com/embed/D9CMUOWmcZs?si=degvSOb4bd3r4mmk&amp;controls=0"
-        videoTitle="YouTube video player"
-      />
-
-      <StorySection
-        storiesData={storiesData.general}
-        storiesConfig={[
-          {
-            storyName: 'Homepage story 2',
-            config: filesData[0],
-            svgSrc: '/ripple.svg',
-          },
-          { storyName: 'Homepage story 3', config: filesData[2] },
-          { storyName: 'Homepage story 4', config: filesData[0] },
-          // ... add more stories as needed
-        ]}
-      />
-      <LargeContentContainer
-        story={findStoryByName('Homepage story 5', storiesData.general)}
-      /> */}
     </section>
   );
 };

@@ -24,7 +24,7 @@ const sideBySideConfig = {
     bodyContainerStyle: 'font-bold my-2 mb-4 text-center',
   },
   imageConfig: {
-    containerStyle: 'h-96',
+    containerStyle: '',
     relativeContainerStyle: 'relative h-full w-full pb-100%',
     imageStyle: 'absolute top-0 left-0 w-full h-full object-cover',
   },
