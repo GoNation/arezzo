@@ -9,7 +9,7 @@ const Price = ({ variants, withDollar }) => {
           ''
         )}
         <div className="variantContainer ">
-          <span className="menuItemPriceLabel uppercase text-xs text-white  font-normal">
+          <span className="menuItemPriceLabel  font-normal">
             {variant.label}
           </span>
           <span> </span>

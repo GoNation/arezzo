@@ -11,7 +11,7 @@ const Contact = ({ aboutData }) => {
       <MapSection aboutData={aboutData} />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:col-span-2 bg-dark pt-4">
-        <FormSection />
+        <FormSection desc="To Stay In The Know About Everything Happening at Arezzo Ristorante & Bar, Please Add Yourself to Our Exclusive Update List." />
 
         <HoursSection aboutData={aboutData} />
       </div>

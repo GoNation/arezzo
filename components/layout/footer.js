@@ -24,7 +24,7 @@ const RouteLinks = ({ routes, tag }) => (
         <li key={route.name}>
           <Link
             href={route.path || route.url || '#'}
-            className="hover:text-primary text-sm mb-3"
+            className="hover:text-white text-sm mb-3 text-white"
           >
             {route.name}
           </Link>
@@ -36,35 +36,35 @@ const RouteLinks = ({ routes, tag }) => (
 const Footer = ({ business }) => {
   return (
     <>
-      <footer className="bg-background border-t-2 border-primary text-dark py-12 md:py-24 md:px-4 footer">
+      <footer className="bg-primary border-t-2 border-background text-white py-12 md:py-24 md:px-4 footer">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 lg:grid-cols-4 max-w-7xl">
           {/* Logo and Description */}
           <div className=" md:col-span-3 lg:col-span-1 md:order-10 lg:order-first ">
             <div className=" inline-block  py-2 px-4 rounded mb-2">
               <img src={buildAvatar(business)} alt={business.name} />
             </div>
-            <p className="mb-4 max-w-xs text-sm text-dark font-body"></p>
+            <p className="mb-4 max-w-xs text-sm text-white font-body"></p>
             <div className="flex">
-              <SocialLinks links={business.links} fill="#000000" />
+              <SocialLinks links={business.links} fill="#ffffff" />
             </div>
           </div>
 
           {/* Discover */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2 text-2xl text-primary">Discover</h4>
+            <h4 className="font-bold mb-2 text-2xl text-white">Discover</h4>
             <RouteLinks routes={routes} tag="discover" />
           </div>
 
           {/* Menus */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2 text-2xl text-primary">Menus</h4>
+            <h4 className="font-bold mb-2 text-2xl text-white">Menus</h4>
             <RouteLinks routes={routes} tag="menus" />
           </div>
 
           {/* Contact */}
           <div className="md:col-span-1">
-            <h4 className="font-bold mb-2 text-2xl text-primary">Contact</h4>
-            <div className="flex items-center mb-2">
+            <h4 className="font-bold mb-2 text-2xl text-white">Contact</h4>
+            <div className="flex items-center mb-2 ">
               <span className="mr-1">
                 <FaMapMarkerAlt />
               </span>
@@ -74,6 +74,7 @@ const Footer = ({ business }) => {
               <span className="mr-1">
                 <FaPhoneAlt />
               </span>
+
               <Phone {...business} />
             </div>
           </div>

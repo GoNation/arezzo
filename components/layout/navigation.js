@@ -74,9 +74,9 @@ const Navigation = ({
       ) : (
         <LinkItem
           route={route}
-          className={`font-display tracking-wider text-sm md:text-base lg:text-lg uppercase font-bold hover:border-l ${
+          className={`font-display tracking-wider text-sm lg:text-xs xl:text-base uppercase font-bold hover:border-l px-2 ${
             route.hidden && 'hidden'
-          }  px-2 ${
+          }   ${
             route.isPrimaryCalledToAction
               ? 'lg:bg-white lg:text-primary lg:px-5 lg:py-1 border border-primary hover:text-dark no-underline hover:no-underline transition-all duration-500 '
               : 'text-white hover:text-primary  transition-all duration-500 hover:bg-white hover:border-l-primary'
@@ -88,9 +88,9 @@ const Navigation = ({
 
   const renderLogo = () => (
     <div
-      className={`transition-all bg-white max-w-[250px] py-2 px-4 rounded-sm border-primary border md:absolute md:top-0 md:left-0 md:max-w-none flex justify-center w-full right-0 w-full`}
+      className={`transition-all  max-w-[250px] lg:max-w-[200px] xl:max-w-[275px] py-2 px-4 rounded-sm  flex justify-center w-full`}
     >
-      <div className="md:w-40">
+      <div className="">
         <Link href={'/'}>
           <Image
             className="transition-all"
@@ -111,7 +111,7 @@ const Navigation = ({
   const renderNavigationContent = () => {
     if (navLayout === 'logoLeft') {
       return (
-        <div className="flex justify-between items-center">
+        <div className="flex w-full justify-between items-center">
           {renderLogo()}
           {renderNavItems()}
         </div>
@@ -136,7 +136,7 @@ const Navigation = ({
 
   return (
     <div className={`absolute w-full z-50 transition-all`}>
-      <div className="container max-w-9xl  mx-auto px-4 py-4 pt-12 flex items-center justify-between xl:justify-center">
+      <div className="xl:px-8 px-2 sm:px-4 w-full py-4 pt-6 lg:pt-8 flex items-center justify-between">
         {renderNavigationContent()}
 
         <div className="lg:hidden  right-8 top-14 md:top-16 z-10">

@@ -1,8 +1,8 @@
 import GenericContactForm from 'components/contact/GenericContactForm';
 
-const FormSection = () => (
+const FormSection = ({ desc }) => (
   <div className="md:col-span-1">
-    <GenericContactForm />
+    <GenericContactForm desc={desc} />
   </div>
 );
 

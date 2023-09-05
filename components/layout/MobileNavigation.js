@@ -26,7 +26,10 @@ function MobileNavigation({ navVariants, business, logo }) {
             <span className="font-bold">Address:</span> {printAddress(business)}
           </p> */}
         <div className="md:hidden ">
-          <Link href="/" className="absolute top-10 left-2">
+          <Link
+            href="/"
+            className="absolute top-0 left-0 right-0 py-2 pl-2  bg-primary"
+          >
             <Image
               src={logo}
               width={mobileLogoSize}
@@ -35,7 +38,10 @@ function MobileNavigation({ navVariants, business, logo }) {
           </Link>
         </div>
         <div className="hidden md:block">
-          <Link href="/" className="absolute top-10 left-2">
+          <Link
+            href="/"
+            className="absolute top-0 bg-primary pl-2 right-0 py-2 left-0"
+          >
             <Image src={logo} width={400} height={400}></Image>
           </Link>
         </div>
