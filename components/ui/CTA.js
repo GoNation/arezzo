@@ -6,13 +6,13 @@ const CTA = ({ children, url, primaryFilled, unset, tertiary }) => {
   const target = isExternalURL ? '_blank' : '';
 
   const baseStyle =
-    'text-lg px-12 py-4 transition-all duration-1000 uppercase font-body';
+    'bg-transparent text-white border-2 border-white  hover:text-primary px-8 py-3 xl:px-12 xl:py-3 text-lg lg:text-xl xl:text-2xl uppercase bold ease-in-out duration-500 hover:bg-white';
   const primaryFilledStyle =
     'bg-dark text-primary uppercase border-2 border-light hover:text-primary  hover:text-white px-8 py-2 md:py-4 md:px-12';
   const tertiaryStyle =
     'bg-transparent  text-dark border-2 border-dark  hover:text-primary px-8 py-3 xl:px-12 xl:py-3 text-lg lg:text-xl xl:text-2xl uppercase bold ease-in-out duration-500 hover:bg-white';
   const defaultStyle =
-    'bg-tertiary text-primary border-4 border-primary font-bold text-dark hover:bg-primary  hover:text-tertiary ease-in-out duration-500 ';
+    'bg-transparent  text-dark border-2 border-dark  hover:text-primary px-8 py-3 xl:px-12 xl:py-3 text-lg lg:text-xl xl:text-2xl uppercase bold ease-in-out duration-500 hover:bg-white';
 
   const style = unset
     ? baseStyle

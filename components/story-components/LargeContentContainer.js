@@ -29,7 +29,9 @@ const ContentBox = ({
   return (
     <div
       className={`absolute large-content-container  ${navPosition} ${
-        solidBg ? 'max-w-xl text-white' : 'max-w-2xl text-white border-2'
+        solidBg
+          ? 'max-w-xl text-white'
+          : 'max-w-2xl text-white  rounded bg-gradient-to-br from-stone-950 to-transparent'
       } px-4 py-8 md:px-8 ${bgColor} mx-4 md:mx-0`}
     >
       {children}
@@ -69,11 +71,11 @@ const LargeContentContainer = ({
         opacityStrength={opacityStrength}
       >
         {title && (
-          <div className="mb-6 leading-7">
+          <div className="mb-1 leading-7">
             <h4
               className={`${
                 solidBg ? 'text-3xl lg:text-4xl' : 'text-2xl md:text-3xl'
-              } font-display uppercase`}
+              } font-display font-light uppercase`}
             >
               {title}
             </h4>
@@ -81,7 +83,9 @@ const LargeContentContainer = ({
         )}
         {subtitle && (
           <div className="mb-3">
-            <h4 className={`text-xl lg:text-2xl font-display`}>{subtitle}</h4>
+            <h4 className={`text-xl lg:text-xl font-display font-bold`}>
+              {subtitle}
+            </h4>
           </div>
         )}
         {body && (
@@ -91,7 +95,7 @@ const LargeContentContainer = ({
         )}
         {linkTitle && (
           <div>
-            <CTA tertiary url={linkAddress}>
+            <CTA unset={true} url={linkAddress}>
               {linkTitle}
             </CTA>
           </div>

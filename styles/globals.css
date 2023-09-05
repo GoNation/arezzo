@@ -403,7 +403,7 @@ body p {
 	@apply text-lg
 }
 
-.home p {
+.side-by-side p {
 	@apply !max-w-lg text-base text-gray-900 font-body leading-loose
 }
 

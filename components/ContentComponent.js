@@ -22,12 +22,14 @@ const ContentComponent = ({
       }`}
     >
       <h4
-        className={`${styles.titleStyle} lg:!text-4xl !text-3xl font-light !text-gray-800 xl:!max-w-xl`}
+        className={`${styles.titleStyle} lg:!text-4xl !text-3xl font-light !text-gray-800 xl:!max-w-xl `}
       >
         {title}
       </h4>
       {subtitle && (
-        <h5 className={`${styles.subtitleStyle} !text-lg !font-bold`}>
+        <h5
+          className={`${styles.subtitleStyle} !text-lg !font-bold normal-case`}
+        >
           {subtitle}
         </h5>
       )}

@@ -24,7 +24,7 @@ const RouteLinks = ({ routes, tag }) => (
         <li key={route.name}>
           <Link
             href={route.path || route.url || '#'}
-            className="hover:text-white text-sm mb-3 text-white"
+            className="hover:text-green-600 text-sm mb-3 text-white"
           >
             {route.name}
           </Link>
@@ -39,7 +39,7 @@ const Footer = ({ business }) => {
       <footer className="bg-primary border-t-2 border-background text-white py-12 md:py-24 md:px-4 footer">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 lg:grid-cols-4 max-w-7xl">
           {/* Logo and Description */}
-          <div className=" md:col-span-3 lg:col-span-1 md:order-10 lg:order-first ">
+          <div className=" md:col-span-2 lg:col-span-2 md:order-10 lg:order-first ">
             <div className=" inline-block  py-2 px-4 rounded mb-2">
               <img src={buildAvatar(business)} alt={business.name} />
             </div>
@@ -56,10 +56,10 @@ const Footer = ({ business }) => {
           </div>
 
           {/* Menus */}
-          <div className="md:col-span-1">
+          {/* <div className="md:col-span-1">
             <h4 className="font-bold mb-2 text-2xl text-white">Menus</h4>
             <RouteLinks routes={routes} tag="menus" />
-          </div>
+          </div> */}
 
           {/* Contact */}
           <div className="md:col-span-1">

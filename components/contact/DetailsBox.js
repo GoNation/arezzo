@@ -6,9 +6,9 @@ import Phone from './Phone';
 import SocialLInks from '../ui/SocialLinks';
 
 const DetailsBox = ({ aboutData, title = 'Contact Us' }) => {
-  const detailClassList = 'mb-1 text-lg text-dark text-sm';
+  const detailClassList = 'mb-1 text-lg text-gray-800 text-sm';
   return (
-    <div className="font-body text-dark bg-white border-secondary border-2 mt-2 ml-2 px-4 py-2 md:px-8 md:pr-10">
+    <div className="font-body text-gray-800 bg-white border-secondary border-2 mt-2 ml-2 px-4 py-2 md:px-8 md:pr-10">
       <div className="text-left">
         <h4 className="font-display font-bold uppercase text-xl md:text-2xl">
           {title}
@@ -27,7 +27,7 @@ const DetailsBox = ({ aboutData, title = 'Contact Us' }) => {
         </p>
         <div className={detailClassList}>
           <div className="flex justify-start">
-            <SocialLInks links={aboutData.links} fill="#000" />
+            <SocialLInks links={aboutData.links} fill="#111111" />
           </div>
         </div>
       </div>

@@ -74,12 +74,12 @@ const Navigation = ({
       ) : (
         <LinkItem
           route={route}
-          className={`font-display tracking-wider text-sm lg:text-xs xl:text-base uppercase font-bold hover:border-l px-2 ${
+          className={`font-display tracking-wider text-sm lg:text-xs xl:text-base uppercase font-bold px-2 ${
             route.hidden && 'hidden'
           }   ${
             route.isPrimaryCalledToAction
               ? 'lg:bg-white lg:text-primary lg:px-5 lg:py-1 border border-primary hover:text-dark no-underline hover:no-underline transition-all duration-500 '
-              : 'text-white hover:text-primary  transition-all duration-500 hover:bg-white hover:border-l-primary'
+              : 'text-white  transition-all duration-500 hover:text-gray-300'
           } `}
         />
       )}

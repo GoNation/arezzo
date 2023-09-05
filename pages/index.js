@@ -30,7 +30,7 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
     <section className="home">
       <Hero
         story={findStoryByName('Homepage hero', storiesData.general)}
-        showLogo
+        showLogo={false}
         business={aboutData}
         shouldShowPhoneAndDirections
       />
