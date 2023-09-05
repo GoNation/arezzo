@@ -31,7 +31,7 @@ const Menu = ({ menuData, mode }) => {
   };
 
   return (
-    <section className="py-6 px-5   font-body bg-transparent">
+    <section className="py-6 px-5   font-body bg-white lg:-mt-32 z-10 relative rounded m-3 md:mx-8 lg:mx-0">
       {menuData?.mode && getRenderType()}
       {/* <CellsAndAllIn menuData={m enuData} mode={mode} />; */}
     </section>

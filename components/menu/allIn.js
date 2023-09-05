@@ -5,72 +5,90 @@ import slugify from 'slugify';
 import Fade from 'react-reveal/Fade';
 import Image from 'next/image';
 
-const AllIn = ({ menuData, setModalActive, onBackClick }) => {
-  // Takes Nested sections and and gets the nested child items and child sections
+const AllIn = ({
+  menuData,
+  setModalActive,
+  onBackClick,
+  shouldHideFirstSection = true,
+}) => {
+  const styles = {
+    allInContainer: 'allInContainer flex flex-wrap w-full mt-4 xl:mt-0',
+    menuContainer:
+      'menuContainer text-left w-full md:mx-4 grid-rows-3 grid-cols-2 py-2',
+    sectionTitle:
+      'text-2xl lg:text-4xl uppercase text-center text-dark font-light font-display md:ml-0 mb-4',
+    sectionDescription:
+      'menuSectionDescription text-light mb-4 mt-1 font-body text-xs max-w-lg text-left',
+    backBtn: 'backToMenuBtn',
+  };
+
   const splitSectionChildren = section => {
     return section.inventory.reduce(
       (acc, curr) => {
-        if ('item' in curr) {
-          acc.childItems.push(curr);
-        } else if ('section' in curr) {
-          acc.childSections.push(curr);
-        }
+        if ('item' in curr) acc.childItems.push(curr);
+        else if ('section' in curr) acc.childSections.push(curr);
         return acc;
       },
       { childItems: [], childSections: [] }
     );
   };
 
-  // Recursively loop through menus and nested menus
   const renderMenu = (menu, nested, idx) => {
     const { section } = menu;
     const parsedSection = splitSectionChildren(menu);
-    const removeSections = [];
+    const removeSections = [
+      'menu',
+      'cocktails menu',
+      'desserts menu',
+      'specials',
+    ];
+
+    const sectionClass = `${styles.allInContainer} ${slugify(section.name, {
+      lower: true,
+    })}`;
+    const menuClass = `${styles.menuContainer} ${
+      removeSections.includes(section.name.toLowerCase()) ? 'hidden' : ''
+    }`;
 
     return (
-      <div
-        key={shortid.generate()}
-        className={`allInContainer flex flex-wrap w-full  mt-4 xl:mt-0 ${slugify(
-          section.name,
-          {
-            lower: true,
-          }
-        )}`}
-      >
-        <div
-          className={`menuContainer text-left w-full  md:mx-4 grid-rows-3 grid-cols-2 py-2 ${
-            removeSections.includes(section.name.toLowerCase()) ? '' : ''
-          }`}
-        >
-          {section.name ? (
-            <h4 className="text-2xl lg:text-4xl uppercase  text-left text-white font-bold  border-b border-primary font-display md:ml-0">
+      <div key={shortid.generate()} className={sectionClass}>
+        {section.imageIsDefault ? (
+          ''
+        ) : (
+          <div className="relative mb-4">
+            <Image
+              width={800}
+              height={400}
+              src={section.imageUrl}
+              className="object-cover max-h-96"
+            />
+            <div className="absolute bottom-0 bg-white px-8 py-2 font-display font-light uppercase  rounded-tr text-primary">
+              {section.name}
+            </div>
+          </div>
+        )}
+
+        <div className={menuClass}>
+          {section.name && (
+            <h4 className={styles.sectionTitle}>
               <span>{section.name}</span>
             </h4>
-          ) : (
-            ''
           )}
-          {section.desc ? (
-            <p className="menuSectionDescription  text-light mb-4 mt-1 font-body text-xs max-w-lg text-left">
-              {section.desc}
-            </p>
-          ) : (
-            ''
+          {section.desc && (
+            <p className={styles.sectionDescription}>{section.desc}</p>
           )}
           <div className="flex flex-wrap">
-            {parsedSection.childItems.map(({ item }, index) => {
-              return (
-                <MenuItem
-                  key={shortid.generate()}
-                  type={'default'}
-                  item={item}
-                  isSingleItem={parsedSection.childItems.length === 1}
-                  menuItemIndex={index}
-                />
-              );
-            })}
+            {parsedSection.childItems.map(({ item }, index) => (
+              <MenuItem
+                key={shortid.generate()}
+                type={'default'}
+                item={item}
+                isSingleItem={parsedSection.childItems.length === 1}
+                menuItemIndex={index}
+              />
+            ))}
           </div>
         </div>
-
         {/* child sections */}
         {parsedSection.childSections.map((childSection, idx) => {
           return renderMenu(childSection, true, idx);
@@ -81,13 +99,12 @@ const AllIn = ({ menuData, setModalActive, onBackClick }) => {
 
   return (
     <div className="allInContainerWrapper">
-      {onBackClick ? (
-        <button className="backToMenuBtn" onClick={() => onBackClick()}>
+      {onBackClick && (
+        <button className={styles.backBtn} onClick={() => onBackClick()}>
           ← Back
         </button>
-      ) : (
-        ''
       )}
+
       {renderMenu(menuData)}
     </div>
   );

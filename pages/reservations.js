@@ -5,13 +5,18 @@ import Body from 'components/ui/Body';
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import findStoryByName from 'helpers/findStoryByName';
 import { businessId } from 'config';
+import OpenTableWidget from 'components/OpenTableWidget';
 
 const Reservations = ({ storiesData, pageData }) => {
   //   const story = findStoryByName(pageData?.reservationsStoryName, storiesData.general);
   return (
-    <section className="about-section p-4 bg-primary ">
-      <div className="rounded bg-dark max-w-xl xl:max-w-3xl mx-auto -mt-20 md:-mt-28 lg:-mt-32 relative z-10 p-4 ">
-        {/* todo bring in story */}
+    <section className="about-section p-4 bg-white  ">
+      <div className="flex flex-col justify-center items-center">
+        {/* OpenTable widget */}
+        <OpenTableWidget />
+
+        {/* Uncomment the following if you want to use the story in the future */}
+        {/* const story = findStoryByName(pageData?.reservationsStoryName, storiesData.general); */}
         {/* <Body body={story.body} /> */}
       </div>
     </section>

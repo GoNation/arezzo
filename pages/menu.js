@@ -7,7 +7,7 @@ import Container from 'components/ui/Container';
 
 const Menu = ({ aboutData, menuInventoryData }) => {
   return (
-    <div className="menu-wrap py-8 bg-dark">
+    <div className="menu-wrap py-8 bg-gray-100">
       <Container size="large">
         <div className="lg:pb-32 ">
           <GoNationMenu

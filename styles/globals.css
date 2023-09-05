@@ -414,3 +414,9 @@ body p {
 .large-content-container p {
 	@apply text-white font-body mb-12;
 }
+
+.reservations-widget iframe {
+	height: 325px;
+	width: 73%;
+	margin: auto;
+}
