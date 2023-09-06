@@ -8,7 +8,7 @@ const Gallery = ({ galleryData }) => {
   const filterGalleryAlbums = abm =>
     !filteredOutGalleryImages.includes(abm.name.toLowerCase());
   return (
-    <section className="min-h-screen with-texture  px-0 bg-dark py-4">
+    <section className="min-h-screen with-texture  px-0 bg-dark py-4 pt-32">
       <Masonry data={galleryData.filter(filterGalleryAlbums)}></Masonry>
     </section>
   );

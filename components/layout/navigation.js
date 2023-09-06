@@ -10,6 +10,7 @@ import { FaAngleDown } from 'react-icons/fa';
 import { routes } from 'config';
 import buildAvatar from 'helpers/general/buildAvatar';
 import slugifyLower from 'helpers/printing/slugifyLower';
+import { getTarget } from 'helpers/general/links';
 
 const Navigation = ({
   business,
@@ -53,6 +54,9 @@ const Navigation = ({
     <Link
       href={route.path || route.url || slugifyLower(route.name) || '#'}
       className={className}
+      target={getTarget(
+        route.path || route.url || slugifyLower(route.name) || '#'
+      )}
     >
       {route.name}
     </Link>

@@ -31,7 +31,7 @@ function ExpandableShout({
     <img
       className={`object-contain w-auto order-2 md:order-1 ${
         imageExpanded ? 'w-auto ' : 'w-auto'
-      } md:my-0 md:w-auto md:max-h-[400px] lg:max-h-[550px] 2xl:max-h-[750px] xl:max-w-6xl `}
+      } md:my-0 md:w-auto md:max-h-[400px] lg:max-h-[550px] xl:max-w-xl `}
       src={parseCloudinaryImage({
         cloudinaryId: shout?.image?.image?.cloudinaryId,
         width: 800,

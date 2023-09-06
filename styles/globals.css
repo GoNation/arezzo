@@ -422,3 +422,7 @@ body p {
 	margin: auto;
 }
 
+
+.sec-Specials-undefined {
+	display: none;
+}

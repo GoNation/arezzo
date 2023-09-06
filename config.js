@@ -57,7 +57,8 @@ const routes = [
     isPrimaryCalledToAction: false,
     seoPageTitle: '',
     tag: 'discover',
-    path: '/reservations',
+    // path: '/reservations',
+    url: 'https://www.opentable.com/arezzo-ristorante',
     customPageHeroTitle: 'Secure Your Seat in Our Tuscan Oasis',
   },
 

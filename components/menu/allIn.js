@@ -36,17 +36,12 @@ const AllIn = ({
   const renderMenu = (menu, nested, idx) => {
     const { section } = menu;
     const parsedSection = splitSectionChildren(menu);
-    const removeSections = [
-      'menu',
-      'cocktails menu',
-      'desserts menu',
-      'specials',
-    ];
+    const removeSections = ['menu', 'cocktails menu', 'desserts menu', ''];
 
     const sectionClass = `${styles.allInContainer} ${slugify(section.name, {
       lower: true,
     })}`;
-    const menuClass = `${styles.menuContainer} ${
+    const menuClass = `sec-${section.name}-${idx} ${styles.menuContainer} ${
       removeSections.includes(section.name.toLowerCase()) ? 'hidden' : ''
     }`;
 
@@ -55,12 +50,12 @@ const AllIn = ({
         {section.imageIsDefault ? (
           ''
         ) : (
-          <div className="relative mb-4">
+          <div className="relative mb-4 w-full">
             <Image
-              width={800}
+              width={1200}
               height={400}
               src={section.imageUrl}
-              className="object-cover max-h-96"
+              className="object-cover max-h-96 w-full"
             />
             <div className="absolute bottom-0 bg-white px-8 py-2 font-display font-light uppercase  rounded-tr text-primary">
               {section.name}
