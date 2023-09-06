@@ -1,74 +1,76 @@
-import { useState } from 'react';
-import { FaRegLemon } from 'react-icons/fa';
 import Image from 'next/image';
-import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Shout from '../shout/Shout';
+import { Carousel } from 'react-responsive-carousel';
+import { Box, Link as ChakraLink, Flex, Text } from '@chakra-ui/react';
 import OpacityBG from '../ui/OpacityBG';
-import ShoutCard from '../shout/ShoutCard';
 import Title from 'components/ui/Title';
 import buildAvatar from 'helpers/general/buildAvatar';
 import printAddress from 'helpers/printing/printAddress';
 import Link from 'next/link';
 import getGoogleString from 'helpers/printing/getGoogleString';
 
-export const Hero = ({
-  imgClassList = 'h-screen md:h-[900px] lg:h-screen',
-  imageWrapperClassList = '',
-  interval = 6000,
-  transitionTime = 3000,
-  story,
-  shout,
-  showLogo = false,
-  business,
-  shouldShowPhoneAndDirections = false,
-}) => {
-  const [displayShoutOverlay, setDisplayShoutOverlay] = useState(false);
-  const defaultImageStyle = 'object-cover flex ';
-  if (!story) {
-    return;
-  }
-  const { media } = story;
+const HeroImage = ({ cloudinaryId, name, description, ...rest }) => (
+  <Box
+    as="img"
+    key={cloudinaryId}
+    alt={name || description}
+    src={`https://res.cloudinary.com/gonation/w_1800/q_auto/f_auto/${cloudinaryId}`}
+    w="100%" // Full width
+    h="100vh" // Full height
+    objectFit="cover" // Equivalent to object-cover
+    {...rest}
+  />
+);
 
-  if (!story) {
-    return '';
-  }
+const BusinessInfo = ({ business }) => (
+  <Flex
+    position="absolute"
+    bottom={0}
+    w="full"
+    justify="center"
+    transform="translateX(-50%)"
+    left="50%"
+    spacing={4}
+    pb={4}
+    fontSize={['sm', 'base']}
+    hoverTextColor="primary"
+    zIndex={10}
+  >
+    <ChakraLink href={`tel:${business.phone}`} color="white">
+      {business.phone}
+    </ChakraLink>
+    <Text color="white">|</Text>
+    <ChakraLink href={getGoogleString({ ...business })} color="white">
+      {printAddress(business)}
+    </ChakraLink>
+  </Flex>
+);
 
-  const renderIndicator = (onClickHandler, isSelected, index, label) => {
-    if (isSelected) {
-      return (
-        <span className="text-white render-icon px-2">
-          <img className="max-w-[25px]" src="/svg.svg" alt="Lemon" />
-        </span>
-      );
-    }
-    return (
-      <span className="text-white render-icon px-2">
-        <FaRegLemon></FaRegLemon>
-      </span>
-    );
-  };
+export const Hero = props => {
+  const {
+    interval = 6000,
+    transitionTime = 3000,
+    story,
+    showLogo = false,
+    business,
+    shouldShowPhoneAndDirections = false,
+  } = props;
+
+  if (!story) return null;
 
   return (
-    <div className="relative ">
-      {/* Bottom Opacity Overlay */}
+    <Box position="relative">
       {shouldShowPhoneAndDirections && (
-        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-black to-transparent"></div>
+        <Box
+          position="absolute"
+          bottom={0}
+          left={0}
+          w="full"
+          h="1/4"
+          bgGradient="linear(to-t, black, transparent)"
+        ></Box>
       )}
-      {/* Phone Number and Address */}
-      {shouldShowPhoneAndDirections && (
-        <div className="absolute bottom-0 w-full justify-center left-1/2 transform -translate-x-1/2 flex items-center space-x-4 pb-4 text-sm sm:text-base hover:text-primary z-10">
-          <Link href={`tel:${business.phone}`} className="text-white">
-            {business.phone}
-          </Link>{' '}
-          {/* Your phone number here */}
-          <span className="text-white">|</span>
-          <Link href={getGoogleString({ ...business })} className="text-white">
-            {printAddress(business)}
-          </Link>
-        </div>
-      )}
-      <div className=""></div>
+      {shouldShowPhoneAndDirections && <BusinessInfo business={business} />}
       <Carousel
         animationHandler="fade"
         autoPlay={true}
@@ -80,54 +82,48 @@ export const Hero = ({
         showArrows={false}
         swipeable={false}
         showIndicators={false}
-        // renderIndicator={(onClickHandler, isSelected, index, label) =>
-        //   renderIndicator(onClickHandler, isSelected, index, label)
-        // }
+        // ...Carousel properties as before...
       >
-        {media.map(({ cloudinaryId, name, description }) => (
-          <img
-            key={cloudinaryId}
-            alt={name || description}
-            className={`${defaultImageStyle} ${imgClassList} object-cover `}
-            layout="fill"
-            // width={1900}
-            // height={800}
-            // width={800}
-            // height={800}
-            src={`https://res.cloudinary.com/gonation/w_1800/q_auto/f_auto/${cloudinaryId}`}
-          />
+        {story.media.map(mediaItem => (
+          <HeroImage {...mediaItem} />
         ))}
       </Carousel>
-      <div className="absolute hidden lg:block top-0 left-0 w-full h-1/4 bg-gradient-to-b from-black to-transparent z-10"></div>
-
-      {/* {shout ? <Shout data={shout}></Shout> : ''} */}
-      <div className="absolute md:top-0 bottom-0 w-full flex flex-col md:flex-row  md:justify-center pr-12   justify-center items-center h-full bottom-0 left-0 right-0 top-0 flex z-10">
-        <div className=" absolute flex h-full left-0 top-0 w-full  hidden md:flex flex-col justify-center items-center  lg:items-center lg:justify-center z-10 ">
-          {showLogo ? (
-            <div className="bg-white px-4 py-2 rounded   lg:flex">
-              <Image
-                width={500}
-                height={500}
-                className=" "
-                src={buildAvatar(business)}
-              />
-            </div>
-          ) : (
-            ''
-          )}
-          {story?.title?.length ? (
-            <Title
-              size={`order-first text-3xl md:text-4xl lg:text-5xl mb-8 mt-4 text-white font-display uppercase text-shadow tracking-wide`}
-              center={true}
-            >
-              {story.title}
-            </Title>
-          ) : (
-            ''
-          )}
-        </div>
-      </div>
+      <Box
+        position="absolute"
+        display={['none', 'none', 'block']}
+        top={0}
+        left={0}
+        w="full"
+        h="1/4"
+        bgGradient="linear(to-b, black, transparent)"
+        zIndex={10}
+      ></Box>
+      <Flex
+        position="absolute"
+        top={0}
+        bottom={0}
+        w="full"
+        justify="center"
+        alignItems={'center'}
+        pr={12}
+        h="full"
+        zIndex={10}
+      >
+        {showLogo && (
+          <Box bg="white" px={4} py={2} borderRadius="md">
+            <Image width={500} height={500} src={buildAvatar(business)} />
+          </Box>
+        )}
+        {story?.title?.length && (
+          <Title
+            size={`order-first text-3xl md:text-4xl lg:text-5xl mb-8 mt-4 text-white font-display uppercase text-shadow tracking-wide`}
+            center={true}
+          >
+            {story.title}
+          </Title>
+        )}
+      </Flex>
       <OpacityBG strength="opacity-20"></OpacityBG>
-    </div>
+    </Box>
   );
 };

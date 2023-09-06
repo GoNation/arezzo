@@ -11,8 +11,6 @@ const ContentComponent = ({
   reversed,
   styles = {},
 }) => {
-  // Merge default styles with provided styles
-
   return (
     <div
       className={`${

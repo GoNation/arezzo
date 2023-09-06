@@ -71,7 +71,7 @@ function ExpandableShout({
         expanded ? 'py-12' : ''
       } relative`}
       style={{
-        backgroundImage: `url(${bg})`,
+        backgroundImage: `url(${bg === 'avatar' ? '' : bg})`,
         backgroundSize: 'cover',
       }}
     >

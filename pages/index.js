@@ -1,74 +1,24 @@
+import React from 'react';
 import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
 
-import ExpandableShout from 'components/shout/ExpandableShout';
 import WithLayout from 'components/layout/WithLayout';
-import MultiStoryHero from 'components/story-components/MultiStoryHero';
-import StorySection from 'components/StorySection';
-import BackgroundVideo from 'components/BackgroundVideo';
-import LargeContentContainer from 'components/story-components/LargeContentContainer';
 
 import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
-import { filterAndSortStories } from 'helpers';
-import findStoryByName from 'helpers/findStoryByName';
-import { Hero } from 'components/heros/Hero';
-import buildCover from 'helpers/general/buildCover';
+import componentFactory from 'components/ComponentFactory';
+import { homepageLayout } from 'layouts';
 
 const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
-  //   const homepageSliderStories = filterAndSortStories(
-  //     storiesData,
-  //     'homepage slider'
-  //   );
-
-  //   const homePageStorySectionStories = filterAndSortStories(
-  //     storiesData,
-  //     'homepage story section'
-  //   );
+  const commonData = { storiesData, shoutData, filesData, aboutData };
 
   return (
     <section className="home">
-      <Hero
-        story={findStoryByName('Homepage hero', storiesData.general)}
-        showLogo={false}
-        business={aboutData}
-        shouldShowPhoneAndDirections
-      />
-      <ExpandableShout
-        isExpandable={false}
-        shout={shoutData.shout}
-        bg={buildCover(aboutData)}
-      />
-      <LargeContentContainer
-        story={findStoryByName('Homepage story 2', storiesData.general)}
-      />
-      <div className="lg:py-24">
-        <StorySection
-          storiesData={storiesData.general}
-          storiesConfig={[
-            {
-              storyName: 'Homepage story 4',
-              config: { ...filesData[0], reversed: false },
-            },
-            // ... add more stories as needed
-          ]}
-        />
-      </div>
-      <LargeContentContainer
-        story={findStoryByName('Homepage story 3', storiesData.general)}
-      />
-      <div className="lg:py-24">
-        <StorySection
-          storiesData={storiesData.general}
-          storiesConfig={[
-            { storyName: 'Homepage story 5', config: filesData[0] },
-            // ... add more stories as needed
-          ]}
-        />
-      </div>
-      <LargeContentContainer
-        story={findStoryByName('Homepage story 6', storiesData.general)}
-      />
+      {homepageLayout.map((componentConfig, index) => (
+        <React.Fragment key={index}>
+          {componentFactory(componentConfig, commonData)}
+        </React.Fragment>
+      ))}
     </section>
   );
 };

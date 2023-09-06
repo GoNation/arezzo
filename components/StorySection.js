@@ -3,7 +3,7 @@ import SideBySideImage from 'components/story-components/SideBySideImage';
 import LargeContentContainer from 'components/story-components/LargeContentContainer';
 
 const StorySection = ({ storiesData, storiesConfig }) => (
-  <section className="relative">
+  <section className="relative lg:py-24">
     {storiesConfig.map((storyConfig, index) => (
       <SideBySideImage
         key={index}
