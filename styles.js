@@ -21,7 +21,7 @@ const styles = {
       'bg-tertiary text-primary border-4 border-primary font-bold text-dark hover:bg-primary  hover:text-tertiary ease-in-out duration-500 ',
   },
   ImageComponent: {
-    container: 'h-96',
+    container: '',
     relativeContainer: 'relative h-full w-full pb-100%',
     image: 'absolute top-0 left-0 w-full h-full object-cover',
   },

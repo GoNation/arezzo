@@ -13,10 +13,6 @@ const homepageLayout = [
     bgFunction: buildCover, // Assuming you need the cover for every ExpandableShout
   },
   {
-    type: 'LargeContentContainer',
-    storyName: 'Homepage story 2',
-  },
-  {
     type: 'StorySection',
     storiesConfig: [
       {
@@ -25,6 +21,7 @@ const homepageLayout = [
       },
     ],
   },
+
   {
     type: 'LargeContentContainer',
     storyName: 'Homepage story 3',
@@ -37,6 +34,10 @@ const homepageLayout = [
         config: null, // will get this dynamically
       },
     ],
+  },
+  {
+    type: 'LargeContentContainer',
+    storyName: 'Homepage story 2',
   },
   // ... continue for other components
 ];

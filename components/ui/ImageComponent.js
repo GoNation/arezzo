@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ImageComponent = ({ cloudinaryId, description, reversed, styles }) => (
-  <div className={`${styles.containerStyle} h-96`}>
+  <div className={`${styles.containerStyle} h-full`}>
     <div
       className={`${styles.relativeContainerStyle} ${
         reversed ? 'order-2' : ''

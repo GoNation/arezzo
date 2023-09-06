@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTina } from 'tinacms/dist/react';
 import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
@@ -9,8 +10,14 @@ import fetchGoNationData from 'helpers/fetchers/fetchGoNationData';
 import componentFactory from 'components/ComponentFactory';
 import { homepageLayout } from 'layouts';
 
-const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
+const Home = props => {
+  const { storiesData, shoutData, filesData, aboutData } = props;
   const commonData = { storiesData, shoutData, filesData, aboutData };
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
 
   return (
     <section className="home">
@@ -26,6 +33,10 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
 export default WithLayout(Home);
 
 export async function getStaticProps() {
+  //   const pageResponse = await client.queries.page({
+  //     relativePath: 'content/posts/hell-world.md',
+  //   });
+
   const directory = path.join(process.cwd(), 'content/sidebysideimage');
   const filenames = fs.readdirSync(directory);
 
@@ -53,6 +64,7 @@ export async function getStaticProps() {
   });
   return {
     props: {
+      //   data: pageResponse.data,
       storiesData,
       poweredImagesData,
       shoutData,

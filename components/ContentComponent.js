@@ -1,6 +1,10 @@
 import React from 'react';
-import CTA from './ui/CTA';
+import { useCMS, useForm, usePlugin } from 'tinacms';
+
 import Body from './ui/Body';
+import Link from 'next/link';
+import { Box, Heading, Text } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
 const ContentComponent = ({
   title,
@@ -11,35 +15,55 @@ const ContentComponent = ({
   reversed,
   styles = {},
 }) => {
+  //   const cms = useCMS();
+
+  //   const [data, form] = useForm({
+  //     ...contentForm,
+  //     initialValues: initialData,
+  //   });
+
+  //   usePlugin(form);
+
+  const isExternalURL = linkAddress?.toLowerCase().includes('.com');
+  const target = isExternalURL ? '_blank' : '';
   return (
-    <div
-      className={`${
-        styles.containerStyle
-      } !py-16 md:py-32 lg:py-64 !items-start !px-5 ${
-        reversed ? 'md:order-first' : ''
-      }`}
+    <Box
+      py={{ base: '16', md: '32', lg: '64' }}
+      px="5"
+      alignItems="start"
+      order={reversed && { md: '1' }}
+      {...styles.containerStyle}
     >
-      <h4
-        className={`${styles.titleStyle} lg:!text-4xl !text-3xl font-light !text-gray-800 xl:!max-w-xl `}
+      <Heading
+        as="h4"
+        fontSize={{ lg: '4xl', base: '3xl' }}
+        fontWeight="light"
+        color="gray.800"
+        maxWidth={{ xl: 'xl' }}
+        {...styles.titleStyle}
       >
         {title}
-      </h4>
+      </Heading>
       {subtitle && (
-        <h5
-          className={`${styles.subtitleStyle} !text-lg !font-bold normal-case`}
+        <Heading
+          as="h5"
+          fontSize="lg"
+          fontWeight="bold"
+          textTransform="capitalize"
+          {...styles.subtitleStyle}
         >
           {subtitle}
-        </h5>
+        </Heading>
       )}
-      <div className={`${styles.bodyContainerStyle} !max-w-none  !text-left`}>
+      <Box maxWidth="none" textAlign="left" {...styles.bodyContainerStyle}>
         <Body body={body} />
-      </div>
+      </Box>
       {linkTitle && linkAddress && (
-        <CTA url={linkAddress} tertiary>
-          {linkTitle}
-        </CTA>
+        <Link href={linkAddress} passHref target={target}>
+          <Button variant={'primaryFilled'}>{linkTitle || linkAddress}</Button>
+        </Link>
       )}
-    </div>
+    </Box>
   );
 };
 
