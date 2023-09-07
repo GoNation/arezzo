@@ -4,18 +4,12 @@ const heroComponent = {
   ui: {
     defaultItem: {
       // Default values, modify as needed
-      componentIdentifier: 'Default Identifier',
       storyName: 'Default Story Name',
       showLogo: true,
       shouldShowPhoneAndDirections: true,
     },
   },
   fields: [
-    {
-      type: 'string',
-      label: 'Component Identifier',
-      name: 'componentIdentifier',
-    },
     {
       type: 'string',
       label: 'Story Name',
