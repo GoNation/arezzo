@@ -2,6 +2,7 @@ import { defineConfig } from 'tinacms';
 import heroComponent from './schemas/hero';
 import sideBySide from './schemas/SideBySide';
 import expandableShout from './schemas/expandableShout';
+import largeContentContainer from './schemas/largeContentContainer';
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main';
@@ -53,7 +54,12 @@ export default defineConfig({
             list: true,
             name: 'components',
             label: 'Components',
-            templates: [heroComponent, sideBySide, expandableShout],
+            templates: [
+              heroComponent,
+              sideBySide,
+              expandableShout,
+              largeContentContainer,
+            ],
           },
         ],
       },
