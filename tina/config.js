@@ -1,4 +1,5 @@
 import { defineConfig } from 'tinacms';
+import heroComponent from './schemas/hero';
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main';
@@ -37,6 +38,20 @@ export default defineConfig({
             name: 'body',
             label: 'Body',
             isBody: true,
+          },
+        ],
+      },
+      {
+        name: 'pageLayouts',
+        label: 'Page Layouts',
+        path: 'content/layouts',
+        fields: [
+          {
+            type: 'object',
+            list: true,
+            name: 'components',
+            label: 'Components',
+            templates: [heroComponent],
           },
         ],
       },
