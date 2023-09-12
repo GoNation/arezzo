@@ -1,0 +1,17 @@
+{
+  "Button": {
+    "fontWeight": "200",
+    "textTransform": "none",
+    "variants": {
+      "variantName": "one",
+      "bg": "red",
+      "color": "orange",
+      "borderColor": "red"
+    }
+  },
+  "colors": {
+    "colorName": "primary",
+    "shade50": "#20bed6",
+    "shade900": "#ffffff"
+  }
+}

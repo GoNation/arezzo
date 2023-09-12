@@ -1,8 +1,11 @@
 import { defineConfig } from 'tinacms';
 import heroComponent from './schemas/hero';
-import sideBySide from './schemas/SideBySide';
 import expandableShout from './schemas/expandableShout';
 import largeContentContainer from './schemas/largeContentContainer';
+import themeSchema from './schemas/theme';
+import sideBySide from './schemas/sideBySide';
+import siteConfigSchema from './schemas/siteConfig';
+import json from 'content/test.json';
 
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main';
@@ -25,25 +28,15 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: 'post',
-        label: 'Posts',
-        path: 'content/posts',
-        fields: [
-          {
-            type: 'string',
-            name: 'title',
-            label: 'Title',
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: 'rich-text',
-            name: 'body',
-            label: 'Body',
-            isBody: true,
-          },
-        ],
+        label: 'Chakra Theme',
+        name: 'theme',
+        path: 'content/theme', // you can decide on the path, ensure it exists
+        fields: themeSchema.fields,
+        format: 'json', // I'm assuming you want to save the theme as a JSON
+        create: true, // Allows creating the theme from the CMS if it doesn't exist
+        extension: 'json', // Ensure the file is saved as a JSON file
       },
+      siteConfigSchema,
       {
         name: 'pageLayouts',
         label: 'Page Layouts',

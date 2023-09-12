@@ -4,6 +4,7 @@ import StorySection from 'components/StorySection';
 import LargeContentContainer from 'components/story-components/LargeContentContainer';
 
 import findStoryByName from 'helpers/findStoryByName';
+import SideBySideImage from './story-components/SideBySideImage';
 
 const componentFactory = (componentConfig, commonData) => {
   switch (componentConfig.type) {
@@ -27,14 +28,14 @@ const componentFactory = (componentConfig, commonData) => {
           {...componentConfig}
         />
       );
-    case 'StorySection':
+    case 'SideBySideImage':
       return (
-        <StorySection
-          storiesData={commonData.storiesData.general}
-          storiesConfig={componentConfig.storiesConfig.map(story => {
-            if (story.config === null) story.config = commonData.filesData[0];
-            return story;
-          })}
+        <SideBySideImage
+          story={findStoryByName(
+            componentConfig.storyName,
+            commonData.storiesData.general
+          )}
+          config={commonData.filesData[0]}
         />
       );
     case 'LargeContentContainer':

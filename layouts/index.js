@@ -13,13 +13,9 @@ const homepageLayout = [
     bgFunction: buildCover, // Assuming you need the cover for every ExpandableShout
   },
   {
-    type: 'StorySection',
-    storiesConfig: [
-      {
-        storyName: 'Homepage story 4',
-        config: null, // will get this dynamically
-      },
-    ],
+    type: 'SideBySideImage',
+    storyName: 'Homepage story 4',
+    config: null,
   },
 
   {
@@ -27,14 +23,11 @@ const homepageLayout = [
     storyName: 'Homepage story 3',
   },
   {
-    type: 'StorySection',
-    storiesConfig: [
-      {
-        storyName: 'Homepage story 5',
-        config: null, // will get this dynamically
-      },
-    ],
+    type: 'SideBySideImage',
+    storyName: 'Homepage story 5',
+    config: null,
   },
+
   {
     type: 'LargeContentContainer',
     storyName: 'Homepage story 2',
