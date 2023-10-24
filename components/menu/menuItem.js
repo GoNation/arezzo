@@ -29,7 +29,7 @@ const MenuItem = ({
     mainSrc: '',
   });
 
-  const removeImageCopy = img =>
+  const removeImageCopy = (img) =>
     img.includes('copy') ? img.substring(0, img.length - 5) : img;
 
   const imageCopy = item.imageUrl.includes('copy')
@@ -43,7 +43,7 @@ const MenuItem = ({
         className={styles.menuItemImageContainer}
         onClick={() => setLightbox({ isOpen: true, mainSrc: item.imageUrl })}
       >
-        <div className="itemImageFill" />
+        <div className='itemImageFill' />
         <Image
           className={item.photo_id ? 'menuItemImg' : 'menuItemImgDefault'}
           width={800}
@@ -56,7 +56,7 @@ const MenuItem = ({
   };
 
   const ContentComponent = () => (
-    <div className="menuItemContentContainer flex flex-wrap ">
+    <div className='menuItemContentContainer flex flex-wrap '>
       {item.variants.length === 1 && item.variants[0].label === '' ? (
         <>
           <p className={styles.menuItemName}>
@@ -78,7 +78,7 @@ const MenuItem = ({
             </p>
           )}
           <PriceWithVariants
-            withDollar={withDollar}
+            withDollar={true}
             variants={item.variants}
             toSide
           />
@@ -89,8 +89,8 @@ const MenuItem = ({
 
   const defaultType = () => (
     <div className={styles.menuItemInnerContainer}>
-      <div className="absolute h-full "></div>
-      <div className="my-1">
+      <div className='absolute h-full '></div>
+      <div className='my-1'>
         {lightBox.isOpen && (
           <Lightbox
             imageCaption={
