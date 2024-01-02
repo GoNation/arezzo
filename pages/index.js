@@ -64,7 +64,7 @@ const Home = ({ storiesData, shoutData, filesData, aboutData }) => {
           storiesConfig={[
             { storyName: 'Homepage story 5', config: filesData[0] },
             {
-              storyName: 'arezzo express page',
+              storyName: 'Homepage arezzo express',
               config: { ...filesData[4], reversed: false },
             },
             // ... add more stories as needed
