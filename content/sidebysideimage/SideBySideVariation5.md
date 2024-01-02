@@ -14,7 +14,7 @@ contentConfig:
   subtitleStyle: text-primary font-display text-2xl uppercase
   bodyContainerStyle: font-bold my-4 mb-4 text-center max-w-2xl white-sideby text-gray-800
 imageConfig:
-  containerStyle: h-full
+  containerStyle: h-auto
   relativeContainerStyle: relative h-full w-full pb-100%
   imageStyle: absolute top-0 left-0 w-full h-full object-cover
 ---
