@@ -15,17 +15,18 @@ const ContentComponent = ({
 
   return (
     <div
-      className={`${
-        styles.containerStyle
-      } !py-16 md:py-32 lg:py-64 !items-start !px-5 ${
+      className={`${styles.containerStyle}  !items-start !px-5 ${
         reversed ? 'md:order-first' : ''
       }`}
     >
-      <h4
-        className={`${styles.titleStyle} lg:!text-4xl !text-3xl font-light !text-gray-800 xl:!max-w-xl `}
-      >
-        {title}
-      </h4>
+      {title?.length > 3 && (
+        <h4
+          className={`${styles.titleStyle} lg:!text-4xl !text-3xl font-light !text-gray-800 xl:!max-w-xl `}
+        >
+          {title}
+        </h4>
+      )}
+
       {subtitle && (
         <h5
           className={`${styles.subtitleStyle} !text-lg !font-bold normal-case`}

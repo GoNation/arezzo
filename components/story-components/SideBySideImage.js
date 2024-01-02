@@ -23,7 +23,7 @@ const SideBySideImage = ({ story, config }) => {
 
   return (
     <div
-      className={`${sideBySideImageContainerStyle} side-by-side md:!gap-0 gap-0 !p-0 `}
+      className={`${sideBySideImageContainerStyle} side-by-side md:!gap-0 gap-0 lg:py-12 xl:py-24 `}
     >
       <ImageComponent
         cloudinaryId={cloudinaryId}

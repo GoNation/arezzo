@@ -77,11 +77,19 @@ const routes = [
   },
   {
     name: 'Private Parties',
-    isPrimaryCalledToAction: true,
+    isPrimaryCalledToAction: false,
     seoPageTitle: '',
     path: '/private-parties',
     customPageHeroTitle: 'Host Your Signature Tuscan Affair at Arezzo',
     pageHero: 'private-parties-pagehero',
+  },
+  {
+    name: 'Arezzo Express',
+    path: '/arezzo-express',
+    isPrimaryCalledToAction: true,
+    pageHero: 'arezzo-express-pagehero',
+    // customPageHeroTitle: 'Arezzo',
+    aboutStoryName: 'arezzo express page',
   },
 ];
 
