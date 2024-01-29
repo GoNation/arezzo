@@ -5,12 +5,14 @@ import Link from 'next/link';
 dayjs.extend(relativeTime);
 
 import parseCloudinaryImage from 'helpers/cloudinary/parseCloudinaryImage';
+import useShout from 'hooks/useShout';
 
 function ExpandableShout({
-  shout,
+  //   shout,
   isExpandable = true,
   bg = 'https://res.cloudinary.com/gonation/image/upload/v1693076784/sites/thc/esmith7196_Capture_a_high-quality_photograph_of_a_rich_and_text_3ded2088-2032-4fc6-82f7-99c6feb728cc.png',
 }) {
+  const { shout, isLoading } = useShout();
   const [expanded, setExpanded] = useState(!isExpandable);
   const [imageExpanded, setImageExpanded] = useState(false);
   const [lightboxVisible, setLightboxVisible] = useState(false);
@@ -23,7 +25,9 @@ function ExpandableShout({
     }
   };
 
-  const linkTitle = shout?.ctas ? Object.keys(shout.ctas)[0] || '' : '';
+  const linkTitle = shout?.shout?.ctas
+    ? Object.keys(shout?.shout?.ctas)[0] || ''
+    : '';
   const linkAddress = linkTitle?.length ? shout?.ctas[linkTitle] : '';
   const linkIsUrl = linkAddress.includes('http') ? '_blank' : '';
 
@@ -33,7 +37,7 @@ function ExpandableShout({
         imageExpanded ? 'w-auto ' : 'w-auto'
       } md:my-0 md:w-auto md:max-h-[400px] lg:max-h-[550px] 2xl:max-h-[750px] xl:max-w-6xl `}
       src={parseCloudinaryImage({
-        cloudinaryId: shout?.image?.image?.cloudinaryId,
+        cloudinaryId: shout?.shout?.image?.image?.cloudinaryId,
         width: 800,
       })}
       alt=""
@@ -46,10 +50,10 @@ function ExpandableShout({
       <div className="relative order-2 md:order-1">{renderImage()}</div>
       <div className="md:pr-8 sm:max-w-md md:max-w-none order-1 md:order-1 mb-8 md:mb-0 md:px-8 lg:px-16">
         <p className="font-bold inline text-4xl sm:text-5xl lg:text-5xl text-white font-display leading-10">
-          {shout?.title || 'Recent Shout:'} <br />
+          {shout?.shout?.title || 'Recent Shout:'} <br />
         </p>
         <p className="text-lg md:text-lg my-2 md:my-6 text-white font-bold max-w-2xl xl:max-w-3xl">
-          {shout?.text}
+          {shout?.shout?.text}
         </p>
 
         <Link target={linkIsUrl} href={`${linkAddress}`}>
@@ -77,7 +81,7 @@ function ExpandableShout({
     >
       <div className=" absolute left-0 top-0 w-full h-full bg-primary bg-opacity-80 md:bg-gradient-to-r md:from-black md:via-black/60 md:to-transparent"></div>
       <p className="absolute bottom-4 right-4 text-xs md:text-sm xl:text-base italic text-white">
-        Shouted {dayjs(shout?.createdAt).fromNow()}
+        Shouted {dayjs(shout?.shout?.createdAt).fromNow()}
       </p>
       {expanded ? expandedView : null}
       {lightboxVisible && (
@@ -88,8 +92,8 @@ function ExpandableShout({
           <div className="max-h-full flex flex-col items-center justify-center">
             {renderImage()}
             <div className="text-center text-white absolute bottom-4 max-w-sm  md:max-w-lg bg-black py-1">
-              <h3 className="font-bold text-white">{shout?.title}</h3>
-              <p className="text-white text-xs">{shout?.text}</p>
+              <h3 className="font-bold text-white">{shout?.shout?.title}</h3>
+              <p className="text-white text-xs">{shout?.shout?.text}</p>
             </div>
           </div>
         </div>
