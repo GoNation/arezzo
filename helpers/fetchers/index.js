@@ -1,3 +1,6 @@
+import axios from 'axios';
+import jsonAdapter from 'axios-jsonp';
+
 const storiesFetch = async businessId => {
   const storiesResponse = await fetch(
     `https://gonation.com/api/proxy/v2/businesses/${businessId}/aboutArticles`
@@ -22,12 +25,21 @@ const aboutFetch = async businessId => {
   return aboutData;
 };
 
-const shoutFetch = async businessId => {
-  const shoutResponse = await fetch(
-    `https://data.prod.gonation.com/profile/shoutsnew/${businessId}`
-  );
-  const shoutData = await shoutResponse.json();
-  return shoutData;
+const shoutFetch = async (businessId, useJSONP) => {
+  if (useJSONP) {
+    const shoutResponse = await axios({
+      url: `https://data.prod.gonation.com/profile/shoutsnew/${businessId}`,
+      adapter: jsonAdapter,
+      callbackParamName: 'callback',
+    });
+    return shoutResponse?.data;
+  } else {
+    const shoutResponse = await fetch(
+      `https://data.prod.gonation.com/profile/shoutsnew/${businessId}`
+    );
+    const shoutData = await shoutResponse.json();
+    return shoutData;
+  }
 };
 
 const eventFetch = async businessId => {
