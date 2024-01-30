@@ -1,0 +1,58 @@
+fragment ThemeParts on Theme {
+  Button {
+    __typename
+    fontWeight
+    textTransform
+    variants {
+      __typename
+      variantName
+      bg
+      color
+      borderColor
+    }
+  }
+  colors {
+    __typename
+    colorName
+    shade50
+    shade900
+  }
+  typography {
+    __typename
+    fontFamily
+  }
+}
+
+fragment SiteConfigParts on SiteConfig {
+  businessId
+  poweredId
+  routes {
+    __typename
+    name
+  }
+}
+
+fragment PageLayoutsParts on PageLayouts {
+  components {
+    __typename
+    ... on PageLayoutsComponentsHero {
+      storyName
+      showLogo
+      shouldShowPhoneAndDirections
+    }
+    ... on PageLayoutsComponentsSideBySide {
+      storyName
+      reversed
+    }
+    ... on PageLayoutsComponentsExpandableShout {
+      backgroundImage
+      customBackground
+      backgroundColor
+    }
+    ... on PageLayoutsComponentsLargeContentContainer {
+      storyName
+      position
+      backgroundColor
+    }
+  }
+}
