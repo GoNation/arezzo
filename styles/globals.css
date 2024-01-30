@@ -404,7 +404,7 @@ body p {
 }
 
 .side-by-side p {
-	@apply !max-w-lg text-base text-gray-900 font-body leading-loose
+	@apply !max-w-2xl text-base text-gray-900 font-body leading-loose
 }
 
 .home-body p {

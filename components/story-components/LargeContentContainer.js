@@ -95,7 +95,11 @@ const LargeContentContainer = ({
         )}
         {linkTitle && (
           <div>
-            <CTA unset={true} url={linkAddress}>
+            <CTA
+              unset={true}
+              url={linkAddress}
+              target={linkAddress.includes('http') ? '_blank' : ''}
+            >
               {linkTitle}
             </CTA>
           </div>

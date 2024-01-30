@@ -31,19 +31,21 @@ const Tabs = ({
         );
       });
     } else {
-      return childSections.map(({ section, inventory }) => (
-        <MenuTab
-          key={section._id}
-          section={section}
-          inventory={inventory}
-          onCellClick={onCellClick}
-          setActiveSection={setActiveSection}
-          activeSection={activeSection}
-          displayedCellSection={displayedCellSection}
-          setDisplayedCellSection={setDisplayedCellSection}
-          isTabs
-        />
-      ));
+      return childSections
+        .filter(({ section }) => !section.hidden)
+        .map(({ section, inventory }) => (
+          <MenuTab
+            key={section._id}
+            section={section}
+            inventory={inventory}
+            onCellClick={onCellClick}
+            setActiveSection={setActiveSection}
+            activeSection={activeSection}
+            displayedCellSection={displayedCellSection}
+            setDisplayedCellSection={setDisplayedCellSection}
+            isTabs
+          />
+        ));
     }
   };
 

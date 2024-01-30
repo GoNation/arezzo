@@ -47,9 +47,31 @@ const routes = [
   {
     name: 'Order Online',
     isPrimaryCalledToAction: false,
-    url: 'https://order.toasttab.com/online/arezzo-ristorante-5-riverside-ave',
+    // url: 'https://order.toasttab.com/online/arezzo-ristorante-5-riverside-ave',
     seoPageTitle: '',
     tag: 'discover',
+    children: [
+      {
+        name: 'Toast',
+        isPrimaryCalledToAction: false,
+        url: 'https://order.toasttab.com/online/arezzo-ristorante-5-riverside-ave',
+      },
+      {
+        name: 'Grubhub',
+        isPrimaryCalledToAction: false,
+        url: 'https://www.grubhub.com/restaurant/arezzo-ristorante-5-riverside-ave-westport/7143776',
+      },
+      {
+        name: 'Door Dash',
+        isPrimaryCalledToAction: false,
+        url: 'https://www.doordash.com/store/arezzo-ristorante-westport-26218604',
+      },
+      {
+        name: 'UberEats',
+        isPrimaryCalledToAction: false,
+        url: 'https://www.ubereats.com/store/arezzo-ristorante/9GJldc5PW5iwr_DfzSj8Ow?diningMode=DELIVERY',
+      },
+    ],
   },
 
   {
@@ -77,11 +99,19 @@ const routes = [
   },
   {
     name: 'Private Parties',
-    isPrimaryCalledToAction: true,
+    isPrimaryCalledToAction: false,
     seoPageTitle: '',
     path: '/private-parties',
     customPageHeroTitle: 'Host Your Signature Tuscan Affair at Arezzo',
     pageHero: 'private-parties-pagehero',
+  },
+  {
+    name: 'Arezzo Express',
+    path: '/arezzo-express',
+    isPrimaryCalledToAction: true,
+    pageHero: 'arezzo-express-pagehero',
+    // customPageHeroTitle: 'Arezzo',
+    aboutStoryName: 'arezzo express page',
   },
 ];
 

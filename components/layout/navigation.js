@@ -38,8 +38,8 @@ const Navigation = ({
 
   // Component for the dropdown children
   const Dropdown = ({ children }) => (
-    <div className="absolute left-0 mt-0 space-y-2 bg-white text-black shadow-md py-1 hidden group-hover:block">
-      {children.map(child => (
+    <div className='absolute left-0 mt-0 space-y-2 bg-white text-black shadow-md py-1 hidden group-hover:block'>
+      {children.map((child) => (
         <LinkItem
           key={slugify(child.name, { lower: true })}
           route={child}
@@ -63,14 +63,14 @@ const Navigation = ({
   );
 
   // Function to render each route
-  const renderRoute = route => (
-    <div key={slugify(route.name, { lower: true })} className="relative group">
+  const renderRoute = (route) => (
+    <div key={slugify(route.name, { lower: true })} className='relative group'>
       {route.children ? (
         <>
-          <span className="text-white text-sm md:text-base lg:text-xl uppercase font-bold inline-flex items-center">
+          <span className='text-white text-sm md:text-base uppercase font-bold inline-flex items-center'>
             {route.name}
-            <span className="ml-1">
-              <FaAngleDown color="#ffffff" />
+            <span className='ml-1'>
+              <FaAngleDown color='#ffffff' />
             </span>
           </span>
           <Dropdown children={route.children} />
@@ -94,12 +94,12 @@ const Navigation = ({
     <div
       className={`transition-all  max-w-[250px] lg:max-w-[200px] xl:max-w-[275px] py-2 px-4 rounded-sm  flex justify-center w-full`}
     >
-      <div className="">
+      <div className=''>
         <Link href={'/'}>
           <Image
-            className="transition-all"
+            className='transition-all'
             src={logo}
-            alt="Business Logo"
+            alt='Business Logo'
             width={500}
             height={200}
           />
@@ -115,14 +115,14 @@ const Navigation = ({
   const renderNavigationContent = () => {
     if (navLayout === 'logoLeft') {
       return (
-        <div className="flex w-full justify-between items-center">
+        <div className='flex w-full justify-between items-center'>
           {renderLogo()}
           {renderNavItems()}
         </div>
       );
     } else if (navLayout === 'logoRight') {
       return (
-        <div className="flex justify-between items-center">
+        <div className='flex justify-between items-center'>
           {renderNavItems()}
           {renderLogo()}
         </div>
@@ -140,10 +140,10 @@ const Navigation = ({
 
   return (
     <div className={`absolute w-full z-50 transition-all`}>
-      <div className="xl:px-8 px-2 sm:px-4 w-full py-4 pt-6 lg:pt-8 flex items-center justify-between">
+      <div className='xl:px-8 px-2 sm:px-4 w-full py-4 pt-6 lg:pt-8 flex items-center justify-between'>
         {renderNavigationContent()}
 
-        <div className="lg:hidden  right-8 top-14 md:top-16 z-10">
+        <div className='lg:hidden  right-8 top-14 md:top-16 z-10'>
           <Hamburger
             toggled={navIsOpen}
             toggle={setNavIsOpen}
