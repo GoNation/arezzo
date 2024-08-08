@@ -46,7 +46,7 @@ function MobileNavigation({ navVariants, business, logo }) {
           </Link>
         </div>
       </div>
-      <div className=" h-4/5  overflow-y-auto  flex flex-col items-start justify-start md:mt-8">
+      <div className=" h-4/5  overflow-y-scroll  flex flex-col items-start justify-start md:mt-8">
         {routes
           .reduce((acc, route) => {
             if (route.children) {
@@ -58,7 +58,7 @@ function MobileNavigation({ navVariants, business, logo }) {
           }, [])
           .map(route => (
             <Link
-              className="text-primary tracking-wide font-light text-ston hover:text-primary  font-display uppercase  text-base sm:text-lg mb-4 md:mb-8 md:text-xl"
+              className="text-primary tracking-wide font-light text-ston hover:text-primary  font-display uppercase  text-md mb-4 md:mb-8 md:text-xl"
               key={slugify(route.name, {
                 lower: true,
               })}

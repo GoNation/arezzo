@@ -13,11 +13,11 @@ const lightColor = '#E1DEDB';
 
 const routes = [
   {
-    name: 'Home', // This is the name that will appear in the navigation
-    path: '/', // This is the path that will be used to build the URL
-    pageDescription: '', // This is the description that will appear in the <head> tag. If not provided, the business description will be used.
-    customPageHero: 'home-pagehero', // This is the name of the image that will be used as the page hero. If not provided, we will attempt to find the page hero based on the page name.
-    hidePageHero: true, // This will hide the page hero if set to true
+    name: 'Home',
+    path: '/',
+    pageDescription: '',
+    customPageHero: 'home-pagehero',
+    hidePageHero: true,
     isPrimaryCalledToAction: false,
     hidden: true,
   },
@@ -30,24 +30,23 @@ const routes = [
     customPageHeroTitle: 'Discover Our Tuscan Journey in Westport',
     aboutStoryName: 'about-page-content',
   },
-
   {
     name: 'Menu',
     isPrimaryCalledToAction: false,
     path: '/menu',
     pageHero: 'menu-pagehero',
   },
-
   {
-    name: 'Gallery',
+    name: 'Reservations',
     isPrimaryCalledToAction: false,
-    path: '/gallery',
+    seoPageTitle: '',
+    tag: 'discover',
+    url: 'https://www.opentable.com/arezzo-ristorante',
+    customPageHeroTitle: 'Secure Your Seat in Our Tuscan Oasis',
   },
-
   {
     name: 'Order Online',
     isPrimaryCalledToAction: false,
-    // url: 'https://order.toasttab.com/online/arezzo-ristorante-5-riverside-ave',
     seoPageTitle: '',
     tag: 'discover',
     children: [
@@ -75,42 +74,42 @@ const routes = [
   },
 
   {
-    name: 'Reservations',
+    name: 'More',
     isPrimaryCalledToAction: false,
-    seoPageTitle: '',
-    tag: 'discover',
-    // path: '/reservations',
-    url: 'https://www.opentable.com/arezzo-ristorante',
-    customPageHeroTitle: 'Secure Your Seat in Our Tuscan Oasis',
-  },
-
-  {
-    name: 'Events',
-    isPrimaryCalledToAction: false,
-    path: '/events',
-  },
-  {
-    name: 'Contact',
-    isPrimaryCalledToAction: false,
-    seoPageTitle: '',
-    tag: 'discover',
-    path: '/contact',
-    customPageHeroTitle: 'Connect with Arezzo',
-  },
-  {
-    name: 'Private Parties',
-    isPrimaryCalledToAction: false,
-    seoPageTitle: '',
-    path: '/private-parties',
-    customPageHeroTitle: 'Host Your Signature Tuscan Affair at Arezzo',
-    pageHero: 'private-parties-pagehero',
+    children: [
+      {
+        name: 'Gallery',
+        isPrimaryCalledToAction: false,
+        path: '/gallery',
+      },
+      {
+        name: 'Events',
+        isPrimaryCalledToAction: false,
+        path: '/events',
+      },
+      {
+        name: 'Contact',
+        isPrimaryCalledToAction: false,
+        seoPageTitle: '',
+        tag: 'discover',
+        path: '/contact',
+        customPageHeroTitle: 'Connect with Arezzo',
+      },
+      {
+        name: 'Private Parties',
+        isPrimaryCalledToAction: false,
+        seoPageTitle: '',
+        path: '/private-parties',
+        customPageHeroTitle: 'Host Your Signature Tuscan Affair at Arezzo',
+        pageHero: 'private-parties-pagehero',
+      },
+    ],
   },
   {
     name: 'Arezzo Express',
     path: '/arezzo-express',
     isPrimaryCalledToAction: true,
     pageHero: 'arezzo-express-pagehero',
-    // customPageHeroTitle: 'Arezzo',
     aboutStoryName: 'arezzo express page',
   },
 ];
@@ -144,5 +143,3 @@ module.exports = {
   hardCodedAddressURL,
   tertiaryColor,
 };
-
-//
