@@ -8,9 +8,6 @@ const Events = ({ aboutData, eventsData }) => {
   return (
     <section className="py-4 md:py-12 ">
       {/* Other content will go here */}
-      <h3 className="text-center font-display uppercase">
-        No events posted, please check back again
-      </h3>
       <EventsComponent
         pageTitle={'Events'}
         businessData={aboutData}
